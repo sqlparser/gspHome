@@ -2,3 +2,9 @@ port: 40001
 
 # Build settings
 markdown: kramdown
+
+title: Gsp support
+description: Support materials including code snippet and document for General SQL Parser
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-time-machine
