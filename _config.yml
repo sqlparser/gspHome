@@ -7,4 +7,4 @@ title: General SQL Parser
 description: Documents and demos of General SQL Parser
 google_analytics: 
 show_downloads: false
-theme: jekyll-theme-time-machine
+remote_theme: "mmistakes/so-simple-theme"
