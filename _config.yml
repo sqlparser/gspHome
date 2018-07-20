@@ -77,6 +77,13 @@ plugins:
   - jekyll-feed
   - jekyll-paginate
 
+# Collections
+collections:
+  recipes:
+    output: true
+    permalink: /:collection/:path/
+
+    
 # Front Matter Defaults
 defaults:
   # Posts defaults
@@ -86,6 +93,13 @@ defaults:
     values:
       layout: post
       share: true
+  - scope:
+      path: "_recipes"
+      type: recipes
+    values:
+      layout: post
+      comments: true
+      share: true      
 
 # Site Author
 author:
