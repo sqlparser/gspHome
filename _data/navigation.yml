@@ -3,14 +3,14 @@
 - title: Home
   url: /
 - title: Posts
-   url: /posts/
+  url: /posts/
 - title: Categories
-   url: /categories/
+  url: /categories/
 - title: Tags
-   url: /tags/
+  url: /tags/
 - title: Recipes
-   url: /recipes/
+  url: /recipes/
 - title: Search
-   url: /search/
+  url: /search/
 - title: GSP
-   url: http://www.sqlparser.com
+  url: http://www.sqlparser.com
