@@ -13,8 +13,9 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-theme: jekyll-theme-so-simple
-# remote_theme: mmistakes/so-simple-theme
+# theme: jekyll-theme-so-simple
+remote_theme: mmistakes/so-simple-theme
+# port: 40001
 locale: en-US
 title: General SQL Parser
 description: Documents and demos for General SQL Parser
@@ -22,8 +23,8 @@ baseurl: # the subpath of your site, e.g. "/blog"
 url: http://support.sqlparser.com # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 logo: # path of site logo, e.g. "/images/logo.png"
 date_format: "%B %-d, %Y"
-read_time: true # reading time estimates, e.g. true
-words_per_minute: 200 # 200
+read_time: false # reading time estimates, e.g. true
+words_per_minute: # 200
 mathjax: true # MathJax equations, e.g. true
 google_fonts:
   - name: "Source Sans Pro"
@@ -36,8 +37,6 @@ disqus:
 twitter:
   username: # site's Twitter username, e.g. "mmistakes"
 
-paginate: 10  # amount of posts to show per page
-paginate_path: /page:num/
   
 # Liquid
 liquid:
@@ -50,15 +49,15 @@ feed:
   path: atom.xml
 
 # Pagination - https://jekyllrb.com/docs/pagination/
-# paginate: 10
-# paginate_path: /page:num/
+paginate: 10
+paginate_path: /page:num/
 
 # Search
 search_full_content: false # can have performance implications for large sites
 
 # Taxonomy pages
-# category_archive_path: "/categories/#"
-# tag_archive_path: "/tags/#"
+category_archive_path: "/categories/#"
+tag_archive_path: "/tags/#"
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
