@@ -12,5 +12,7 @@ A series of how to articles
 
 ### Tags
 
+Database vendors: db-all, dax, db2, greenplum, hana, hive, impala, informix, mdx, mysql, netezza, oracle, postgresql, redshift, sqlserver, sybase, teradata, vertica
+
 
 ### Collections
