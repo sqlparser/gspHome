@@ -2,6 +2,7 @@
 layout: page
 title: "General SQL Parser FAQ"
 tag: faq
+permalink: gsp-faq.html
 ---
 
 ### Technical support
