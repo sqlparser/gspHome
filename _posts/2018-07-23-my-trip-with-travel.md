@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A Trip
+title: A Trip with travel
 category: travel
 ---
 
