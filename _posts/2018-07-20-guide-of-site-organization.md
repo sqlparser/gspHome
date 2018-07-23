@@ -7,12 +7,17 @@ This site provides documents that helps people make better use of [General SQL P
 Documents will be organized using category, tag and collection.
 
 ### Categories 
-A series of how to articles 
 
+Demos used to illustrate how to use General SQL Parser: **demo**
+
+Articles about SQL syntax of different databases: **sql-syntax**
+
+API, class information about General SQL Parser library: **gsp-api**
 
 ### Tags
 
-Database vendors: db-all, dax, db2, greenplum, hana, hive, impala, informix, mdx, mysql, netezza, oracle, postgresql, redshift, sqlserver, sybase, teradata, vertica
+Database vendors tags: **db-all, dax, db2, greenplum, hana, hive, impala, informix, mdx, mysql, netezza, oracle, postgresql, redshift, sqlserver, sybase, teradata, vertica**
 
+Use cases from the end users: **use-case**
 
 ### Collections
