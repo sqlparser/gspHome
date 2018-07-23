@@ -11,6 +11,7 @@ Documents will be organized using category, tag and collection.
 1. Demos used to illustrate how to use General SQL Parser: **demo**
 2. Articles about SQL syntax of different databases: **sql-syntax**
 3. API, class information about General SQL Parser library: **gsp-api**
+3. Documents helps people get start: **get-start**
 
 ### Tags
 
