@@ -3,11 +3,11 @@ layout: page
 title: "Extracts the table/column from SQL script"
 ---
 
+This tool will fetch table, column and column index inside the SQL script including PL/SQL. You can find this tool in demo\gettablecolumns shipped together with general SQL parser library Java and .NET version.
+
 {% include toc %}
 
 ### Run this tool
-
-This tool will fetch table, column and column index inside the SQL script including PL/SQL. You can find this tool in demo\gettablecolumns shipped together with general SQL parser library Java and .NET version.
 
 _getTableColumn /f path_to_sqlfile /t dbvendor /parameter_
 

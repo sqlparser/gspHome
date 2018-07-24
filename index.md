@@ -13,8 +13,9 @@ entries_layout: list
 
 ### Tutorials
 
-- [Extracts the table/column from SQL script](gsp-demo-get-table-column.html)
-- [Collect data lineage in Data Warehouses by analysis SQL script](gsp-demo-data-lineage.html)
+{% for item in site.tutorials %}
+  - <a href="{{ item.url }}">{{ item.title }}</a>
+{% endfor %}
 
 ### FAQ
 - [General SQL Parser FAQ](gsp-faq.html)
