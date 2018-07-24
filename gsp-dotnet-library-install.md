@@ -20,6 +20,7 @@ General SQL Parser packages can be installed into a .NET project of some kind. F
 2. Create the project using the following command:
 
    _`dotnet new console`_
+   
 3. Use dotnet run to test that the app has been created properly.
 
 ### Add the Gudusoft.GeneralSQLParser NuGet package
@@ -40,34 +41,34 @@ General SQL Parser packages can be installed into a .NET project of some kind. F
    
 2. Replace the Main function with the following:
 
-``` csharp
-static void Main(string[] args) {
+	``` csharp
+	static void Main(string[] args) {
 
-	string sqlText = @"SELECT e.last_name AS name,
-	e.commission_pct comm,
-	e.salary * 12 ""Annual Salary""
-	FROM scott.employees AS e
-	WHERE e.salary > 1000 or 1=1
-	ORDER BY
-	e.first_name,
-	e.last_name;";
+		string sqlText = @"SELECT e.last_name AS name,
+		e.commission_pct comm,
+		e.salary * 12 ""Annual Salary""
+		FROM scott.employees AS e
+		WHERE e.salary > 1000 or 1=1
+		ORDER BY
+		e.first_name,
+		e.last_name;";
 
-	TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvoracle);
+		TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvoracle);
 
-	sqlparser.sqltext = sqlText;
-	int ret = sqlparser.parse();
-	if (ret == 0)
-	{
-		Console.WriteLine("Congratulations, you have successfully setup the general SQL parser.");
+		sqlparser.sqltext = sqlText;
+		int ret = sqlparser.parse();
+		if (ret == 0)
+		{
+			Console.WriteLine("Congratulations, you have successfully setup the general SQL parser.");
+		}
+		else
+		{
+			Console.WriteLine("Syntax error detected: {0}",sqlparser.Errormessage);
+		}
+
 	}
-	else
-	{
-		Console.WriteLine("Syntax error detected: {0}",sqlparser.Errormessage);
-	}
-
-}
-```
+	```
 
 3. Build and run the app by using the commanddotnet run. The output should be something like this:
 
-Congratulations, you have successfully setup the general SQL parser.
+   _`Congratulations, you have successfully setup the general SQL parser`_.
