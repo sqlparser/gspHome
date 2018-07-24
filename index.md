@@ -1,5 +1,6 @@
 ---
 layout: page
+Title: "Getting started with the General SQL Parser"
 excerpt: "Documents and demos for general SQL parser"
 show_excerpts: true
 paginate: true
@@ -13,6 +14,7 @@ entries_layout: list
 ### Tutorials
 
 [Extracts the table/column from SQL script](gsp-demo-get-table-column.html)
+
 [Collect data lineage in Data Warehouses by analysis SQL script](gsp-demo-data-lineage.html)
 
 ### FAQ
