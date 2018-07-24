@@ -114,7 +114,7 @@ sstplsql_createprocedure
   sst_assignstmt
 ```
 
-### <a name="ambiguous">Handle the ambiguous columns in SQL script</a>
+### Handle the ambiguous columns in SQL script
 
 Sometimes columns used in the SQL script was not qualified which make it's difficult or even impossible to find out which table this column belongs to. Take this SQL for example:
 
@@ -182,7 +182,7 @@ c:\prg\tmp\demo.sql|N/A|column|N/A|dept|*|resultColumn|1|8|
 c:\prg\tmp\demo.sql|N/A|column|N/A|dept|dept.id|where|3|25|
 ```
 
-There is a parameter:`listStarColumn` in this tool that you can use to control the output of star column. This parameter only affects the output of summary output, it doesn't affect the output of the detailed output which always list the star column.
+There is a parameter:`listStarColumn` in this tool that you can use to control the output of star column. This parameter only affects the output of `summary output`, it doesn't affect the output of the `detailed output` which always list the star column.
 
 ### Need more information about the table and column relationship and data flow?
 
