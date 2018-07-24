@@ -2,15 +2,9 @@
 
 - title: Home
   url: /
-- title: Posts
-  url: /posts/
-- title: Categories
-  url: /categories/
-- title: Tags
-  url: /tags/
-- title: Recipes
-  url: /recipes/
-- title: Search
-  url: /search/
-- title: GSP
-  url: http://www.sqlparser.com
+- title: Tutorials
+  url: /tutorials/
+- title: FAQ
+  url: /gsp-faq.html
+- title: Live Demo
+  url: /http://sqlparser.com/livedemo.php

@@ -1,10 +1,6 @@
 ---
 layout: page
 title: "General SQL Parser FAQ"
-categories:
-  - get start
-tags:
-  - faq
 permalink: gsp-faq.html
 ---
 
