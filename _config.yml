@@ -82,6 +82,10 @@ collections:
   recipes:
     output: true
     permalink: /:collection/:path/
+  tutorials:
+    output: true
+    permalink: /:collection/:path/
+    
 
     
 # Front Matter Defaults
@@ -98,6 +102,13 @@ defaults:
       type: recipes
     values:
       layout: post
+      comments: true
+      share: true      
+  - scope:
+      path: "_tutorials"
+      type: tutorials
+    values:
+      layout: page
       comments: true
       share: true      
 

@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Extracts the table/column from SQL script"
-permalink: gsp-demo-get-table-column.html
 ---
 
 {% include toc %}
