@@ -14,7 +14,7 @@ entries_layout: list
 ### Tutorials
 
 {% for item in site.tutorials %}
-  <a href="{{ item.url }}">{{ item.title }}</a>
+  - <a href="{{ item.url }}">{{ item.title }}</a>
 {% endfor %}
 
 ### FAQ
