@@ -190,7 +190,7 @@ This tool lists all table and columns involved in the SQL script. However, it do
 
 If you want to know when a value of the column is updated, how many other table and columns will be affected. Or, If you want to know the value of a source column was calculated from which target columns,
 
-then this tool won't help. The good news is that we do provide another tool: **Dlineage** which do all the above thing for you.
+then this tool won't help. The good news is that we do provide another tool: Dlineage [^dlineage] which do all the above thing for you.
 
 ### Further works
 
@@ -206,5 +206,8 @@ This tool shipped together with the General SQL Parser library and under the dem
 - (2017-08-21)  Add the detailed output.
 - (2017-08-10) List datatype information if the column is in create table statement.
 - (2017-08-10) List index columns
+
+
+[^dlineage]: [Data lineage demo](http://support.sqlparser.com/gsp-demo-data-lineage)
 
 
