@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Getting started with the General SQL Parser"
+title: "Welcome"
 excerpt: "Documents and demos for general SQL parser"
 show_excerpts: true
 paginate: true
