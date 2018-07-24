@@ -21,7 +21,7 @@ title: General SQL Parser
 description: Documents and demos for General SQL Parser
 baseurl: # the subpath of your site, e.g. "/blog"
 url: http://support.sqlparser.com # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-logo: "/images/gudu_favicon.ico" # path of site logo, e.g. "/images/logo.png"
+logo: # path of site logo, e.g. "/images/logo.png"
 date_format: "%B %-d, %Y"
 read_time: false # reading time estimates, e.g. true
 words_per_minute: # 200
