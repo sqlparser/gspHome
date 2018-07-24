@@ -13,7 +13,7 @@ permalink: gsp-faq.html
 ### Technical support
 
 ##### Q: Does general SQL parser depend on any third party library/software/DLLs?
-> General SQL Parser(GSP) doesn't depend on any third party library/software/DLLs.  In order to run GSP Java version, JRE 1.5 is needed. In order to run GSP .NET version, .NET Framework 45. or higher is needed.
+> General SQL Parser(GSP) doesn't depend on any third party library/software/DLLs.  In order to run GSP Java version, JRE 1.5 is needed. In order to run GSP .NET version, .NET Framework 4.5 or higher is needed.
 
 ##### Q: In order to use GSP to validate SQL syntax, do I need to connect to a database instance such as Oracle?
 > GSP can validate SQL syntax without any connection to the database instance, no internet connection. GSP includes all SQL parser engines itself, no additional file or connection is needed.
