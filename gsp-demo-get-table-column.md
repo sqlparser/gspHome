@@ -114,7 +114,7 @@ sstplsql_createprocedure
   sst_assignstmt
 ```
 
-### Handle the ambiguous columns in SQL script
+### <a name="ambiguous">Handle the ambiguous columns in SQL script</a>
 
 Sometimes columns used in the SQL script was not qualified which make it's difficult or even impossible to find out which table this column belongs to. Take this SQL for example:
 
@@ -208,6 +208,6 @@ This tool shipped together with the General SQL Parser library and under the dem
 - (2017-08-10) List index columns
 
 
-[^dlineage]: [Data lineage demo](http://support.sqlparser.com/gsp-demo-data-lineage)
+[^dlineage]: [Data lineage article](http://support.sqlparser.com/gsp-demo-data-lineage)
 
 
