@@ -22,7 +22,8 @@ permalink: gsp-faq.html
 > Issues reported by users usually will be fixed with 1-2 weeks for free, however, this is not guaranteed. In addition to providing you with our free tech support, we also offer customized services, click here for detailed information.
 
 ##### Q: When database vendor add new SQL syntax, how long will those SQL syntaxes be supported in general SQL parser?
-> Typically, new SQL syntax will be added within 3 months after A new version of database released by DB vendor. However, it's not guaranteed all new SQL syntax will be supported, you may request support for a new SQL syntax if it's not available in the latest version of GSP yet.
+> General SQL Parser supports both PL/SQL and SQL. Although we try to add support for all SQL syntax of the database, it's quite difficult to make sure all SQL syntax of the database is supported especially keep up with the recent version. 
+> The goal of General SQL Parser is NOT to support all SQL syntax of the database, but support the most used SQL syntax. So, our strategy is to add support for the new SQL syntax when it is requested by the user.
 
 ### Licensing and billing
 
