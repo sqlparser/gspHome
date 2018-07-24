@@ -14,8 +14,8 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 # theme: jekyll-theme-so-simple
-remote_theme: mmistakes/so-simple-theme
-# port: 40001
+# remote_theme: mmistakes/so-simple-theme
+port: 40001
 locale: en-US
 title: General SQL Parser
 description: Documents and demos for General SQL Parser

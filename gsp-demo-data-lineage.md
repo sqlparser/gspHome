@@ -20,7 +20,7 @@ Once we have such kind of data lineage in hand, we can do these kind of things e
 In order to run this tool, JRE 1.5 or higher need to be installed.  In command line, run java -Xms256m -Xmx1024m -jar DlineageDemo.jar
 
 1. Select the database vendor from menu -> Vendor
-2. Pickup the SQL script from menu ¡ú File ¡ú Load SQL Files, or just paste SQL query into the SQL editor.
+2. Pickup the SQL script from menu -> File -> Load SQL Files, or just paste SQL query into the SQL editor.
 3. Click "Analyze" button in the tool bar.
 4. Result will be shown in the diagram window and data flow xml file will be generated under the output directory in the same directory of DlineageDemo.jar.
 
@@ -93,7 +93,3 @@ Where sal > 1000
 ```
 
 The value of `vEmp.eName` doesn't depends on `scott.emp.sal`, but the number of records in the `vEmp` depends on the `scott.emp.sal`, so this tool record this kind of relationship as well.
-
-
-
-
