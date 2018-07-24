@@ -23,6 +23,7 @@ permalink: gsp-faq.html
 
 ##### Q: When database vendor add new SQL syntax, how long will those SQL syntaxes be supported in general SQL parser?
 > General SQL Parser supports both PL/SQL and SQL. Although we try to add support for all SQL syntax of the database, it's quite difficult to make sure all SQL syntax of the database is supported especially keep up with the recent version. 
+> 
 > The goal of General SQL Parser is NOT to support all SQL syntax of the database, but support the most used SQL syntax. So, our strategy is to add support for the new SQL syntax when it is requested by the user.
 
 ### Licensing and billing
