@@ -18,6 +18,7 @@ General SQL Parser packages can be installed into a .NET project of some kind. F
 
 1. Create a folder for the project.
 2. Create the project using the following command:
+
    _`dotnet new console`_
 3. Use dotnet run to test that the app has been created properly.
 
