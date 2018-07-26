@@ -21,5 +21,4 @@ entries_layout: list
 - [General SQL Parser FAQ](gsp-faq.html)
 
 ### Contact
-
--  <a href="#" onclick="FreshWidget.widget('open')">CLICK HERE FOR HELP</a>
+-  <a href="#" onclick="window.FreshWidget.show()">CLICK HERE FOR HELP</a>
