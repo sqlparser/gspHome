@@ -22,6 +22,9 @@ permalink: gsp-faq.html
 > 
 > The goal of General SQL Parser is NOT to support all SQL syntax of the database, but support the most used SQL syntax. So, our strategy is to add support for the new SQL syntax when it is requested by the user.
 
+##### Q: Is GSP .NET version a .NET Standard library?
+> Yes. General SQL Parser .NET version is .NET Standard compatible which means it can run on all .NET platforms that implement .NET Standard.
+
 ### Licensing and billing
 
 ##### Q: What's kind of General SQL Parser license do I need?
@@ -43,9 +46,6 @@ The only licensed developer can access APIs of General SQL Parser library, any t
 
 ##### Q: May I use GSP in more than one product?
 > Yes. There is no limitation of how many products GSP can be used in.
-
-##### Q: Is GSP .NET version a .NET Standard library?
-> Yes. General SQL Parser .NET version is .NET Standard compatible which means it can run on all .NET platforms that implement .NET Standard.
 
 ### Sales and reseller
 
