@@ -44,6 +44,9 @@ The only licensed developer can access APIs of General SQL Parser library, any t
 ##### Q: May I use GSP in more than one product?
 > Yes. There is no limitation of how many products GSP can be used in.
 
+##### Q: Is GSP .NET version a .NET Standard library?
+> Yes. General SQL Parser .NET version is .NET Standard compatible which means it can run on all .NET platforms that implement .NET Standard.
+
 ### Sales and reseller
 
 ##### Q: We are resellers. can we purchase your products for our customers?
