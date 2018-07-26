@@ -69,6 +69,10 @@ General SQL Parser packages can be installed into a .NET project of some kind. F
 	}
 	```
 
-3. Build and run the app by using the commanddotnet run. The output should be something like this:
+3. Build and run the app by using the command
+
+  _`dotnet run`_
+  
+  The output should be something like this:
 
    _`Congratulations, you have successfully setup the general SQL parser`_.
