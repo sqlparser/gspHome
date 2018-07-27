@@ -60,7 +60,7 @@ Since GSP already created the parse tree for you, then, how to create parse tree
 
 Following are the most used parse tree node type which you will use during the script rewrite process.
 
-- `TSourceToken`
+- **`TSourceToken`**
 
 	The input SQL script will be turned into a list of tokens by the lexer of GSP. Each token is represented by a `TSourceToken` object.
 
@@ -74,7 +74,31 @@ Following are the most used parse tree node type which you will use during the s
 	TSourceToken st = new TSourceToken("AToken");
 	```
 
-- `TObjectName`
+- **`TObjectName`**
+
+	This class is used to represents various database object such as table, column, index and so on.
+
+	Java code to create a new object name:
+	```java
+		// use new constructor to create an object name
+		TObjectName tableName = new TObjectName(new TSourceToken("ATable"), EDbObjectType.table);
+		assertTrue(tableName.toString().equalsIgnoreCase("ATable"));
+
+		TObjectName columnName = new TObjectName(new TSourceToken("ATable"),new TSourceToken("AColumn"), EDbObjectType.column);
+		assertTrue(columnName.toScript().equalsIgnoreCase("ATable.AColumn"));
+
+		// use parseObjectName() method to create a three parts object name
+		TGSqlParser sqlParser= new TGSqlParser(EDbVendor.dbvmssql);
+		columnName = sqlParser.parseObjectName("scott.emp.salary");
+		assertTrue(columnName.toScript().equalsIgnoreCase("scott.emp.salary"));
+	```
+	
+	C# code to create a new object name:
+	```csharp
+	TSourceToken st = new TSourceToken("AToken");
+	```
+
+	
 - `TConstant`
 - `TFunctionCall`
 - `TExpression`
