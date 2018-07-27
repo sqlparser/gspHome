@@ -210,13 +210,16 @@ Due to the complexity of SQL language itself, In the GSP library, there are hund
 We have shipped some sample code together with the GSP library to illustrate how to manipulate those parse tree node.
 
 - Create parse node
+
   `test/scriptWriter/testCreateNode.Java`,  including expression, constant, function, objectname, create index statement, Oracle assignment statement,
   create table statement, create view statement, Delete statement, Drop index statement, Insert statement, Alter Trigger statement, create trigger statement,
   create procedure statement, If statement, update statement.
   
 - Modify expression
+
   `test/scriptWriter/testModifyExpr.Java`
   
 - Modify SQL statement and clause
+
   `test/scriptWriter/testModifySql.Java`, 
 
