@@ -68,6 +68,11 @@ Following are the most used parse tree node type which you will use during the s
 	```java
 	TSourceToken st = new TSourceToken("AToken");
 	```
+	
+	C# code to create a new source token:
+	```csharp
+	TSourceToken st = new TSourceToken("AToken");
+	```
 
 - `TObjectName`
 - `TConstant`
