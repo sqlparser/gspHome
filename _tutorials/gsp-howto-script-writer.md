@@ -60,18 +60,18 @@ Since GSP already created the parse tree for you, then, how to create parse tree
 
 Following are the most used parse tree node type which you will use during the script rewrite process.
 
-##### TSourceToken
+- `TSourceToken`
 
-The input SQL script will be turned into a list of tokens by the lexer of GSP. Each token is represented by a `TSourceToken` object.
+	The input SQL script will be turned into a list of tokens by the lexer of GSP. Each token is represented by a `TSourceToken` object.
 
-Java code to create a new source token:
-```java
-TSourceToken st = new TSourceToken("AToken");
-```
+	Java code to create a new source token:
+	```java
+	TSourceToken st = new TSourceToken("AToken");
+	```
 
-##### TObjectName
-##### TConstant
-##### TFunctionCall
-##### TExpression
-##### TSelectSqlStatement
+- `TObjectName`
+- `TConstant`
+- `TFunctionCall`
+- `TExpression`
+- `TSelectSqlStatement`
 
