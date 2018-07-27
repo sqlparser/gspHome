@@ -82,7 +82,7 @@ Following are the most used parse tree node type which you will use during the s
 	```java
 		// use new constructor to create an object name
 		TObjectName tableName = new TObjectName(new TSourceToken("ATable"), EDbObjectType.table);
-		assertTrue(tableName.toString().equalsIgnoreCase("ATable"));
+		assertTrue(tableName.toScript().equalsIgnoreCase("ATable"));
 
 		TObjectName columnName = new TObjectName(new TSourceToken("ATable"),new TSourceToken("AColumn"), EDbObjectType.column);
 		assertTrue(columnName.toScript().equalsIgnoreCase("ATable.AColumn"));
@@ -95,9 +95,23 @@ Following are the most used parse tree node type which you will use during the s
 	
 	C# code to create a new object name:
 	```csharp
-	TSourceToken st = new TSourceToken("AToken");
+		// use new constructor to create an object name
+		TObjectName tableName = new TObjectName(new TSourceToken("ATable"), EDbObjectType.table);
+		Assert.IsTrue(tableName.ToScript().Equals("ATable", StringComparison.CurrentCultureIgnoreCase));
+
+		TObjectName columnName = new TObjectName(new TSourceToken("ATable"), new TSourceToken("AColumn"), EDbObjectType.column);
+		Assert.IsTrue(columnName.ToScript().Equals("ATable.AColumn", StringComparison.CurrentCultureIgnoreCase));
+
+		// use parseObjectName() method to create a three parts object name
+		TGSqlParser sqlParser = new TGSqlParser(EDbVendor.dbvmssql);
+		columnName = sqlParser.parseObjectName("scott.emp.salary");
+		Assert.IsTrue(columnName.ToScript().Equals("scott.emp.salary", StringComparison.CurrentCultureIgnoreCase));
 	```
 
+**Watch out!** There are 2 methods to generate SQL text from parse tree node: `toString()` and `toScript()`.
+`toString()` is used when the parse tree node is created by the parser and was not modified manually.
+`toScript()` is used when the parse tree node is created manually or the parse tree node was modified.
+{: .notice--warning}
 	
 - `TConstant`
 - `TFunctionCall`
