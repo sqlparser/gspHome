@@ -60,6 +60,17 @@ Since GSP already created the parse tree for you, then, how to create parse tree
 
 Following are the most used parse tree node type which you will use during the script rewrite process.
 
+For class **`TSourceToken`**, **`TObjectName`** and **`TConstant`**, there are 2 ways to create a new instance, use the class constructor or 
+use the help method in the **`TGSqlParser`** class.
+
+For class **`TFunctionCall`**, **`TExpression`** and **`TSelectSqlStatement`**, it's much easier to create a new instance by using the help method
+in the **`TGSqlParser`** class.
+
+**Watch out!** There are 2 methods to generate SQL text from parse tree node: `toString()` and `toScript()`.
+`toString()` is used when the parse tree node is **created by the parser and was not modified manually**.
+`toScript()` is used when the parse tree node is **created manually or the parse tree node was modified**.
+{: .notice--warning}
+
 - **`TSourceToken`**
 
 	The input SQL script will be turned into a list of tokens by the lexer of GSP. Each token is represented by a `TSourceToken` object.
@@ -76,7 +87,7 @@ Following are the most used parse tree node type which you will use during the s
 
 - **`TObjectName`**
 
-	This class represents various database object such as table, column, index and so on.
+    This class represents various database object such as table, column, index and so on.
 
 	Java code to create a new object name:
 	```java
@@ -107,15 +118,10 @@ Following are the most used parse tree node type which you will use during the s
 	columnName = sqlParser.parseObjectName("scott.emp.salary");
 	Assert.IsTrue(columnName.ToScript().Equals("scott.emp.salary", StringComparison.CurrentCultureIgnoreCase));
 	```
-
-**Watch out!** There are 2 methods to generate SQL text from parse tree node: `toString()` and `toScript()`.
-`toString()` is used when the parse tree node is created by the parser and was not modified manually.
-`toScript()` is used when the parse tree node is created manually or the parse tree node was modified.
-{: .notice--warning}
 	
 - **`TConstant`**
 
-  This class represents literal such as 8, 'Thomas' in SQL script.
+    This class represents literal such as 8, 'Thomas' in SQL script.
 
 	Java:
 	```java
@@ -143,7 +149,10 @@ Following are the most used parse tree node type which you will use during the s
 	```
 	
   
-- `TFunctionCall`
-- `TExpression`
-- `TSelectSqlStatement`
+- **`TFunctionCall`**
+
+   This class represents a function used in SQL script such as `avg()`.
+
+- **`TExpression`**
+- **`TSelectSqlStatement`**
 
