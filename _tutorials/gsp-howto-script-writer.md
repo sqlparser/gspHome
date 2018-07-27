@@ -75,12 +75,12 @@ in the **`TGSqlParser`** class.
 
 	The input SQL script will be turned into a list of tokens by the lexer of GSP. Each token is represented by a `TSourceToken` object.
 
-	Java code to create a new source token:
+	Java:
 	```java
 	TSourceToken st = new TSourceToken("AToken");
 	```
 	
-	C# code to create a new source token:
+	C#:
 	```csharp
 	TSourceToken st = new TSourceToken("AToken");
 	```
@@ -89,7 +89,7 @@ in the **`TGSqlParser`** class.
 
     This class represents various database object such as table, column, index and so on.
 
-	Java code to create a new object name:
+	Java:
 	```java
 	// use new constructor to create an object name
 	TObjectName tableName = new TObjectName(new TSourceToken("ATable"), EDbObjectType.table);
@@ -104,7 +104,7 @@ in the **`TGSqlParser`** class.
 	assertTrue(columnName.toScript().equalsIgnoreCase("scott.emp.salary"));
 	```
 	
-	C# code to create a new object name:
+	C#:
 	```csharp
 	// use new constructor to create an object name
 	TObjectName tableName = new TObjectName(new TSourceToken("ATable"), EDbObjectType.table);
@@ -153,6 +153,20 @@ in the **`TGSqlParser`** class.
 
    This class represents a function used in SQL script such as `avg()`.
 
+	Java:
+	```java
+	TFunctionCall functionCall = OracleParser.parseFunctionCall("fx(a1,a2)");
+	assertTrue( functionCall.getFunctionName( )
+			.toString( )
+			.equalsIgnoreCase( "fx" ) );
+	```
+	
+	C#:
+	```csharp
+	TFunctionCall functionCall = OracleParser.parseFunctionCall("fx(a1,a2)");
+	Assert.IsTrue(functionCall.FunctionName.ToString().Equals("fx", StringComparison.CurrentCultureIgnoreCase));
+	```
+	
 - **`TExpression`**
 - **`TSelectSqlStatement`**
 
