@@ -76,36 +76,36 @@ Following are the most used parse tree node type which you will use during the s
 
 - **`TObjectName`**
 
-	This class is used to represents various database object such as table, column, index and so on.
+	This class represents various database object such as table, column, index and so on.
 
 	Java code to create a new object name:
 	```java
-		// use new constructor to create an object name
-		TObjectName tableName = new TObjectName(new TSourceToken("ATable"), EDbObjectType.table);
-		assertTrue(tableName.toScript().equalsIgnoreCase("ATable"));
+	// use new constructor to create an object name
+	TObjectName tableName = new TObjectName(new TSourceToken("ATable"), EDbObjectType.table);
+	assertTrue(tableName.toScript().equalsIgnoreCase("ATable"));
 
-		TObjectName columnName = new TObjectName(new TSourceToken("ATable"),new TSourceToken("AColumn"), EDbObjectType.column);
-		assertTrue(columnName.toScript().equalsIgnoreCase("ATable.AColumn"));
+	TObjectName columnName = new TObjectName(new TSourceToken("ATable"),new TSourceToken("AColumn"), EDbObjectType.column);
+	assertTrue(columnName.toScript().equalsIgnoreCase("ATable.AColumn"));
 
-		// use parseObjectName() method to create a three parts object name
-		TGSqlParser sqlParser= new TGSqlParser(EDbVendor.dbvmssql);
-		columnName = sqlParser.parseObjectName("scott.emp.salary");
-		assertTrue(columnName.toScript().equalsIgnoreCase("scott.emp.salary"));
+	// use parseObjectName() method to create a three parts object name
+	TGSqlParser sqlParser= new TGSqlParser(EDbVendor.dbvmssql);
+	columnName = sqlParser.parseObjectName("scott.emp.salary");
+	assertTrue(columnName.toScript().equalsIgnoreCase("scott.emp.salary"));
 	```
 	
 	C# code to create a new object name:
 	```csharp
-		// use new constructor to create an object name
-		TObjectName tableName = new TObjectName(new TSourceToken("ATable"), EDbObjectType.table);
-		Assert.IsTrue(tableName.ToScript().Equals("ATable", StringComparison.CurrentCultureIgnoreCase));
+	// use new constructor to create an object name
+	TObjectName tableName = new TObjectName(new TSourceToken("ATable"), EDbObjectType.table);
+	Assert.IsTrue(tableName.ToScript().Equals("ATable", StringComparison.CurrentCultureIgnoreCase));
 
-		TObjectName columnName = new TObjectName(new TSourceToken("ATable"), new TSourceToken("AColumn"), EDbObjectType.column);
-		Assert.IsTrue(columnName.ToScript().Equals("ATable.AColumn", StringComparison.CurrentCultureIgnoreCase));
+	TObjectName columnName = new TObjectName(new TSourceToken("ATable"), new TSourceToken("AColumn"), EDbObjectType.column);
+	Assert.IsTrue(columnName.ToScript().Equals("ATable.AColumn", StringComparison.CurrentCultureIgnoreCase));
 
-		// use parseObjectName() method to create a three parts object name
-		TGSqlParser sqlParser = new TGSqlParser(EDbVendor.dbvmssql);
-		columnName = sqlParser.parseObjectName("scott.emp.salary");
-		Assert.IsTrue(columnName.ToScript().Equals("scott.emp.salary", StringComparison.CurrentCultureIgnoreCase));
+	// use parseObjectName() method to create a three parts object name
+	TGSqlParser sqlParser = new TGSqlParser(EDbVendor.dbvmssql);
+	columnName = sqlParser.parseObjectName("scott.emp.salary");
+	Assert.IsTrue(columnName.ToScript().Equals("scott.emp.salary", StringComparison.CurrentCultureIgnoreCase));
 	```
 
 **Watch out!** There are 2 methods to generate SQL text from parse tree node: `toString()` and `toScript()`.
@@ -113,7 +113,36 @@ Following are the most used parse tree node type which you will use during the s
 `toScript()` is used when the parse tree node is created manually or the parse tree node was modified.
 {: .notice--warning}
 	
-- `TConstant`
+- **`TConstant`**
+
+  This class represents literal such as 8, 'Thomas' in SQL script.
+
+	Java:
+	```java
+	// use new constructor to create constant
+	TConstant numberConstant = new TConstant(ELiteralType.etNumber,new TSourceToken("9.1"));
+	assertTrue(numberConstant.toScript().equalsIgnoreCase("9.1"));
+
+	// use parseConstant() method to create constant
+	TGSqlParser sqlParser= new TGSqlParser(EDbVendor.dbvmssql);
+	numberConstant = sqlParser.parseConstant("9.1");
+	assertTrue(numberConstant.toScript().equalsIgnoreCase("9.1"));
+	```
+	
+	C#:
+	```csharp
+	// use new constructor to create a constant object
+	TConstant numberConstant = new TConstant(ELiteralType.numeric_et, new TSourceToken("9.1"));
+	Assert.IsTrue(numberConstant.ToScript().Equals("9.1", StringComparison.CurrentCultureIgnoreCase));
+
+
+	// use parseConstant() method to create a consatnt object
+	TGSqlParser sqlParser = new TGSqlParser(EDbVendor.dbvmssql);
+	numberConstant = sqlParser.parseConstant("9.1");
+	Assert.IsTrue(numberConstant.ToScript().Equals("9.1", StringComparison.CurrentCultureIgnoreCase));
+	```
+	
+  
 - `TFunctionCall`
 - `TExpression`
 - `TSelectSqlStatement`
