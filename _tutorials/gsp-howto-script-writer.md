@@ -141,7 +141,6 @@ in the **`TGSqlParser`** class.
 	TConstant numberConstant = new TConstant(ELiteralType.numeric_et, new TSourceToken("9.1"));
 	Assert.IsTrue(numberConstant.ToScript().Equals("9.1", StringComparison.CurrentCultureIgnoreCase));
 
-
 	// use parseConstant() method to create a consatnt object
 	TGSqlParser sqlParser = new TGSqlParser(EDbVendor.dbvmssql);
 	numberConstant = sqlParser.parseConstant("9.1");
@@ -155,18 +154,52 @@ in the **`TGSqlParser`** class.
 
 	Java:
 	```java
-	TFunctionCall functionCall = OracleParser.parseFunctionCall("fx(a1,a2)");
+	TGSqlParser sqlParser = new TGSqlParser(EDbVendor.dbvmssql);
+	TFunctionCall functionCall = sqlParser.parseFunctionCall("fx(a1,a2)");
 	assertTrue( functionCall.getFunctionName( )
-			.toString( )
+			.toScript()
 			.equalsIgnoreCase( "fx" ) );
 	```
 	
 	C#:
 	```csharp
-	TFunctionCall functionCall = OracleParser.parseFunctionCall("fx(a1,a2)");
-	Assert.IsTrue(functionCall.FunctionName.ToString().Equals("fx", StringComparison.CurrentCultureIgnoreCase));
+	TGSqlParser sqlParser = new TGSqlParser(EDbVendor.dbvmssql);
+	TFunctionCall functionCall = sqlParser.parseFunctionCall("fx(a1,a2)");
+	Assert.IsTrue(functionCall.FunctionName.ToScript().Equals("fx", StringComparison.CurrentCultureIgnoreCase));
 	```
 	
 - **`TExpression`**
+
+   This class represents expression/predicate/condition used in SQL script.
+   
+   Due to the complexity of expression, please check [this article](/tutorials/gsp-howto-script-writer-expression) for more detailed information.
+   
 - **`TSelectSqlStatement`**
 
+    This class represents select statement. 
+   
+    Statement object usually created by the parser of GSP. If you need to manually create a select statement object used in for example a exists predicate, then please use the help method in the **`TGSqlParser`** class.
+	
+	Java:
+	```java
+	TGSqlParser sqlParser = new TGSqlParser(EDbVendor.dbvmssql);
+
+	String subQueryStr = "	SELECT *\r\n"
+			+ "	FROM CompanyData.dbo.Customers_33\r\n"
+			+ "	UNION ALL\r\n"
+			+ "	SELECT *\r\n"
+			+ "	FROM Server2.CompanyData.dbo.Customers_66\r\n"
+			+ "	UNION ALL\r\n"
+			+ "	SELECT *\r\n"
+			+ "	FROM Server3.CompanyData.dbo.Customers_99";
+
+	TSelectSqlStatement subquery = sqlParser.parseSubquery(subQueryStr);
+	```
+	
+	C#:
+	```csharp
+	TGSqlParser sqlParser = new TGSqlParser(EDbVendor.dbvmssql);
+	string subqueryStr = @"SELECT * FROM CompanyData.dbo.Customers_33";
+	TSelectSqlStatement subquery = sqlParser.parseSubquery(subqueryStr);
+	```	
+   
