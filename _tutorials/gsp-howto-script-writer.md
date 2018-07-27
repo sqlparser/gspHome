@@ -178,7 +178,7 @@ in the **`TGSqlParser`** class.
 
     This class represents select statement. 
    
-    Statement object usually created by the parser of GSP. If you need to manually create a select statement object used in for example a exists predicate, then please use the help method in the **`TGSqlParser`** class.
+    Statement object usually created by the parser of GSP. If you need to manually create a select statement object used in for example an exists predicate, then please use the help method in the **`TGSqlParser`** class.
 	
 	Java:
 	```java
@@ -203,3 +203,20 @@ in the **`TGSqlParser`** class.
 	TSelectSqlStatement subquery = sqlParser.parseSubquery(subqueryStr);
 	```	
    
+#### More parse tree nodes
+
+Due to the complexity of SQL language itself, In the GSP library, there are hundreds of parse tree node type to represent the corresponding SQL elements.
+
+We have shipped some sample code together with the GSP library to illustrate how to manipulate those parse tree node.
+
+- Create parse node
+  `test/scriptWriter/testCreateNode.Java`,  including expression, constant, function, objectname, create index statement, Oracle assignment statement,
+  create table statement, create view statement, Delete statement, Drop index statement, Insert statement, Alter Trigger statement, create trigger statement,
+  create procedure statement, If statement, update statement.
+  
+- Modify expression
+  `test/scriptWriter/testModifyExpr.Java`
+  
+- Modify SQL statement and clause
+  `test/scriptWriter/testModifySql.Java`, 
+
