@@ -21,6 +21,8 @@ What you need to do is:
     Something like add a new search condition in where clause, remove a column in select list,
 	add a new join table in from clause and etc.
 	
+{% include toc %}
+	
 ### Scenarios that use the script rewrite technology
 
 ##### Check and modify SQL before executing by the DB
@@ -41,4 +43,35 @@ With this SQL script rewrite technoloy, we can dynaimcally generate the SQL scri
 One of the most important things to do when migrate from one database to another is to migrate the SQL and PL/SQL as well.
 Using the GSP along with the script rewrite technology, you can scan all the SQL and PL/SQL to find out how many SQL is not compatible to
 the new database platform that need to be modified, then use the script rewrite technology to rewrite some SQL and PL/SQL automatically,
-Finally, you have to deal with some SQL and PL/SQL that can't be rewrited automatically.
+Finally, you have to deal with some SQL and PL/SQL by hand that can't be rewrited automatically.
+
+
+### Script rewrite detail
+
+There are lots of types of parse tree node, such as statement node, clause node, expression node, literal node and more.
+Usually, the parse tree node are created by the parser of GSP during the parsing process, those parse tree nodes then build up a 
+parse tree which is a SQL statement node.
+
+During the rewrite process, you may create parse node manually and then add it to the parse tree to add new SQL element to the original SQL script.
+
+Since GSP already created the parse tree for you, then, how to create parse tree node manually is the first thing you need to know.
+
+#### Basic parse tree nodes
+
+Following are the most used parse tree node type which you will use during the script rewrite process.
+
+##### TSourceToken
+
+The input SQL script will be turned into a list of tokens by the lexer of GSP. Each token is represented by a `TSourceToken` object.
+
+Java code to create a new source token:
+```java
+TSourceToken st = new TSourceToken("AToken");
+```
+
+##### TObjectName
+##### TConstant
+##### TFunctionCall
+##### TExpression
+##### TSelectSqlStatement
+
