@@ -211,15 +211,27 @@ We have shipped some sample code together with the GSP library to illustrate how
 
 - Create parse node
 
-  `test/scriptWriter/testCreateNode.Java`,  including expression, constant, function, objectname, create index statement, Oracle assignment statement,
+  `test/scriptWriter/testCreateNode.Java`, `demos\testScriptWriter\testCreateNode.cs`
+
+  including expression, constant, function, objectname, create index statement, Oracle assignment statement,
   create table statement, create view statement, Delete statement, Drop index statement, Insert statement, Alter Trigger statement, create trigger statement,
   create procedure statement, If statement, update statement.
   
 - Modify expression
 
-  `test/scriptWriter/testModifyExpr.Java`
+  `test/scriptWriter/testModifyExpr.Java`, `demos\testScriptWriter\testModifyExpr.cs`
   
-- Modify SQL statement and clause
+- Modify SQL statement and SQL clause
 
-  `test/scriptWriter/testModifySql.Java`, 
+  `test/scriptWriter/testModifySql.Java`,  `demos\testScriptWriter\testModifySql.cs`
+  
+  including where clause, group by clause, having clause, order by clause, alter table reference key, join table, 
+  select list, alter table, create table statement, CTE
+  
+- Create Oracle datatype from the scratch
 
+  `test/scriptWriter/testOracleDataType.Java`
+
+- Create SQL Server datatype from the scratch
+
+  `test/scriptWriter/testSQLServerDataType.Java`
