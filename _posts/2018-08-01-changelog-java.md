@@ -7,26 +7,26 @@ categories:
 
 version history of general sql parser:
 + GSP Java version 1.9.4.2(2018-07-31)
- - [Oracle] fix a bug can't parse plsql block not ended by a semicolon.
- - [getTableColumn] link column in add/modify clause to table in alter table statement.
+  - [Oracle] fix a bug can't parse plsql block not ended by a semicolon.
+  - [getTableColumn] link column in add/modify clause to table in alter table statement.
  
 + GSP Java version 1.9.4.2(2018-07-27)
- - [API] add new method: TSourceToken.toScript()
+  - [API] add new method: TSourceToken.toScript()
 
 + GSP Java version 1.9.4.2(2018-07-26)
- - [Teradata] Teradata Geometry datatype support 3 parts function.
- - [Teradata] support syntax that using "," between no values in function parameters.
+  - [Teradata] Teradata Geometry datatype support 3 parts function.
+  - [Teradata] support syntax that using "," between no values in function parameters.
  
 + GSP Java version 1.9.4.1(2018-07-25)
- - [Dlineage/demo] fix a bug source column is not shown correct when table name in from clause is with bracket
+  - [Dlineage/demo] fix a bug source column is not shown correct when table name in from clause is with bracket
 
 + GSP Java version 1.9.4.1(2018-07-19)
- - [Teradata] fix a bug can't parse || operator followed by a variable directly.
+  - [Teradata] fix a bug can't parse || operator followed by a variable directly.
 
 + GSP Java version 1.9.4.1(2018-07-18)
- - [API] TMssqlGrant replaced by TGrantStmt.
- - [SQL Server] fully support create schema statement.
- - [MySQL] fix a bug can't handle if not exists clause in create database statement.
+  - [API] TMssqlGrant replaced by TGrantStmt.
+  - [SQL Server] fully support create schema statement.
+  - [MySQL] fix a bug can't handle if not exists clause in create database statement.
 
 + GSP Java version 1.9.4.1(2018-07-17)
  - [MySQL] Support a list of tables of rename table statement.

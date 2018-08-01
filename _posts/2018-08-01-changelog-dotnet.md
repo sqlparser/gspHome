@@ -6,41 +6,41 @@ categories:
 ---
 
 + dotnet version 3.2.5.6(2018-08-01)
- - [Oracle] fix a bug can't parse plsql block not ended by a semicolon.
- - [general] avoid System.ArgumentNullException when call isvalidsqlpluscmd().
+  - [Oracle] fix a bug can't parse plsql block not ended by a semicolon.
+  - [general] avoid System.ArgumentNullException when call isvalidsqlpluscmd().
  
 + dotnet version 3.2.5.6(2018-07-27)
- - [scriptWriter] fix a bug when new TObjectName with object and part source token.
- - [API] add new method: TSourceToken.toScript()
+  - [scriptWriter] fix a bug when new TObjectName with object and part source token.
+  - [API] add new method: TSourceToken.toScript()
 
 + dotnet version 3.2.5.6(2018-07-11)
- - [SQL Server] support include clause before where condition in create index statement
- - [SQL Server] support WITH (DATA_COMPRESSION = PAGE) in create table statement.
- - [yacc,lex] Able to process rule from 2500 to 3000
- - [SQL Server] fix a bug can't parse CTE in declare for cursor statement.
+  - [SQL Server] support include clause before where condition in create index statement
+  - [SQL Server] support WITH (DATA_COMPRESSION = PAGE) in create table statement.
+  - [yacc,lex] Able to process rule from 2500 to 3000
+  - [SQL Server] fix a bug can't parse CTE in declare for cursor statement.
  
 + dotnet version 3.2.5.5(2018-07-07)
- - [scriptWriter] fix a alias clause of pivot table not placed correct.
- - [scriptWriter] fix a bug can't rewrite bigint datatype correctly.
+  - [scriptWriter] fix a alias clause of pivot table not placed correct.
+  - [scriptWriter] fix a bug can't rewrite bigint datatype correctly.
 					
 + dotnet version 3.2.5.5(2018-07-05)
- - [scriptWriter] fix a bug can't rewrite datetime datatype correctly.
+  - [scriptWriter] fix a bug can't rewrite datetime datatype correctly.
  
 + dotnet version 3.2.5.5(2018-06-04)
- - [SQL Server] support if exists clause in drop procedure/table/index statement.
+  - [SQL Server] support if exists clause in drop procedure/table/index statement.
  
 + dotnet version 3.2.5.4(2018-05-29)
- - [general] fix a null exception error raised when call TTable.getTableName() when tableType is subquery.
+  - [general] fix a null exception error raised when call TTable.getTableName() when tableType is subquery.
 
 + dotnet version 3.2.5.4(2018-05-25)
- - [sql format] fix a problem is that the first SELECT is printed after the closing ) of the INSERT INTO statement.
+  - [sql format] fix a problem is that the first SELECT is printed after the closing ) of the INSERT INTO statement.
  
 + dotnet version 3.2.5.1(2018-05-16)
   - [general] upload Gudusoft.GeneralSQLParser package to nuget.org.
   - [general] library .NET core 2.0 compatible.
   
 + dotnet version 3.2.5.1(2018-05-13)
- - [demo\formatsql] move html output code to demo\formatsql, make this library .NET core 2.0 ready.
+  - [demo\formatsql] move html output code to demo\formatsql, make this library .NET core 2.0 ready.
  
 + dotnet version 3.2.5.0(2018-05-10)
  - [demo\toXML] fix a bug that subquery in then clause of case statement not generated correctly.
