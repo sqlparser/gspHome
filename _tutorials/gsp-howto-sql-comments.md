@@ -12,7 +12,7 @@ Braces `( { } )` are the Informix extension to the ANSI/ISO standard. MySQL also
 
 Oracle uses comments in a SQL statement to pass instructions, or hints, to the database.
 	
-	```sql
+	```
 	{DELETE|INSERT|SELECT|UPDATE} /*+ hint [text] [hint[text]]... */
 	or
 	{DELETE|INSERT|SELECT|UPDATE} --+ hint [text] [hint[text]]...
@@ -20,7 +20,7 @@ Oracle uses comments in a SQL statement to pass instructions, or hints, to the d
 
 MySQL Server supports some variants of C-style comments. These enable you to write code that includes MySQL extensions, but is still portable, by using comments of the following form:
 
-	```sql
+	```
 	/*! MySQL-specific code */ 
 	```
 	
@@ -30,7 +30,7 @@ After parsing the SQL script, single/Multi line comment is not included in the s
 it difficult to link the comment to a specific SQL clause. However, it's still possible to get some useful information 
 by using the __TParseTreeNode.getLineNo()__ , __TParseTreeNode.getColumnNo()__, __TSourceToken.lineNo__,  __TSourceToken.columnNo__.
 
-Comment inside SQL script is recoginzed as a source token(`TSourceToken`) by GSP with tokentype set to `ttsimplecomment` or `ttbracketedcomment`, 
+Comment inside SQL script is recoginzed as a source token(`TSourceToken`) by GSP with `tokentype` set to `ttsimplecomment` or `ttbracketedcomment`, 
 so you can find comment inside a SQL statement by iterating the `TCustomSqlStatement.sourcetokenlist` or `TGSqlParser.getSourcetokenlist()` 
 if you need to find comment in the whole SQL script.
 
