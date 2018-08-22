@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "General SQL Parser Java version released 2018-08-22"
+title: "General SQL Parser Java version 19.4.4 released (2018-08-22)"
 categories:
   - changelog
 ---
