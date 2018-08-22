@@ -10,7 +10,7 @@ Comments used in the SQL script clarify the purpose or effect of the SQL stateme
 Single line comments start with `--`. Multi-line comments start with `/*` and end with `*/`. Some databases have their extension to the ANSI/ISO standard,
 Braces `{ }` are the Informix extension to the ANSI/ISO standard. Start a line comment from a `#` character to the end of the line is the MySQL extension.
 
-
+{% include toc %}
 	
 ### Parsing SQL comment in GSP
 
@@ -57,7 +57,7 @@ public class testComment extends TestCase {
 			}
 		}
 
-		selectItemVisitor itemVisitor = new selectItemVisitor();
+		
 		for(int i=0;i<sqlparser.sqlstatements.size();i++){
 			TCustomSqlStatement sqlStatement = sqlparser.sqlstatements.get(i);
 			analyzeStmt(sqlStatement);
@@ -108,7 +108,7 @@ class selectItemVisitor extends TParseTreeVisitor {
 
  
 
-#### Oracle instructions/hints
+### Oracle instructions/hints
 
 Oracle uses comments in a SQL statement to pass instructions, or hints, to the database.
 	
@@ -118,7 +118,9 @@ Oracle uses comments in a SQL statement to pass instructions, or hints, to the d
 	{DELETE|INSERT|SELECT|UPDATE} --+ hint [text] [hint[text]]...
 	```
 
-#### MySQL-specific code
+The hint in select statement can be fetched by using `TSelectSqlStatement.getOracleHint()` method. There is no specific method to get the hint in delete/insert/update statement yet.
+	
+### MySQL-specific code
 
 MySQL Server supports some variants of C-style comments. These enable you to write code that includes MySQL extensions, but is still portable, by using comments of the following form:
 
@@ -126,6 +128,8 @@ MySQL Server supports some variants of C-style comments. These enable you to wri
 	/*! MySQL-specific code */ 
 	```
 
+There is no specific method to get the MySQL-specific code yet.	
+	
 	
 Reference:
 * [Informix](https://www.ibm.com/support/knowledgecenter/en/SSGU8G_12.1.0/com.ibm.sqls.doc/ids_sqs_0210.htm)
