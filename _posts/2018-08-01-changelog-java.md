@@ -21,7 +21,7 @@ version history of general sql parser:
   - [Dlineage/demo] fix a bug source column is not shown correct when table name in from clause is with bracket
 
 + GSP Java version 1.9.4.1(2018-07-19)
-  - [Teradata] fix a bug can't parse || operator followed by a variable directly.
+  - [Teradata] fix a bug can't parse `||` operator followed by a variable directly.
 
 + GSP Java version 1.9.4.1(2018-07-18)
   - [API] TMssqlGrant replaced by TGrantStmt.

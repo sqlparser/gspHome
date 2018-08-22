@@ -23,7 +23,8 @@ However, comment is not included in the syntax tree like other SQL clauses which
 But it's still possible to know the relation between comment and SQL clause by using the position information 
 of the comment( __TSourceToken.lineNo__,  __TSourceToken.columnNo__) and  start/end token( __TSourceToken.lineNo__,  __TSourceToken.columnNo__) of the SQL clause.
 
-It's possible to link comment to the SQL clause by using line and column position provided by GSP. Below is the demo list the comments to the select list.
+It's possible to link comment to the SQL clause by using line and column position provided by GSP. Below is the demo lists the comments after the select list.
+
 
 ```java
 import gudusoft.gsqlparser.*;
@@ -106,7 +107,7 @@ class selectItemVisitor extends TParseTreeVisitor {
 }
 ```
 
- 
+The full java file is under test\testComment.java. 
 
 ### Oracle instructions/hints
 
