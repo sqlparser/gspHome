@@ -23,6 +23,9 @@ General SQL Parser packages can be installed into a .NET project of some kind. F
    
 3. Use dotnet run to test that the app has been created properly.
 
+   _`dotnet run`_
+
+
 ### Add the Gudusoft.GeneralSQLParser NuGet package
 
 1. Use the following command to install the Gudusoft.GeneralSQLParser package:
@@ -54,7 +57,9 @@ General SQL Parser packages can be installed into a .NET project of some kind. F
 		e.last_name;";
 
 		TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvoracle);
-
+		Console.WriteLine("versionId: "+ TBaseType.versionId);
+		Console.WriteLine("releaseDate: "+TBaseType.releaseDate);
+		 
 		sqlparser.sqltext = sqlText;
 		int ret = sqlparser.parse();
 		if (ret == 0)
