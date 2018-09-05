@@ -26,17 +26,17 @@ General SQL Parser packages can be installed into a .NET project of some kind. F
    _`dotnet run`_
 
 
-### Add the Gudusoft.GeneralSQLParser NuGet package
+### Add the gudusoft.gsqlparser NuGet package
 
-1. Use the following command to install the Gudusoft.GeneralSQLParser package:
+1. Use the following command to install the gudusoft.gsqlparser package:
 
-   _`dotnet add package Gudusoft.GeneralSQLParser`_
+   _`dotnet add package gudusoft.gsqlparser`_
  
 2. After the command completes, open the .csproj file to see the added reference:
 
-   _`<ItemGroup> <PackageReference Include="Gudusoft.GeneralSQLParser" Version="3.2.5.2" /> </ItemGroup>`_
+   _`<ItemGroup> <PackageReference Include="gudusoft.gsqlparser" Version="3.2.6.5" /> </ItemGroup>`_
    
-### Use the Gudusoft.GeneralSQLParser API in the app
+### Use the gudusoft.gsqlparser API in the app
 
 1. Open the Program.cs file and add the following line at the top of the file:
 
