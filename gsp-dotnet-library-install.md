@@ -28,7 +28,7 @@ General SQL Parser packages can be installed into a .NET project of some kind. F
 
 ### Add the gudusoft.gsqlparser NuGet package
 
-1. Use the following command to install the gudusoft.gsqlparser package:
+1. Use the following command to install [the gudusoft.gsqlparser package](https://www.nuget.org/packages/gudusoft.gsqlparser/): 
 
    _`dotnet add package gudusoft.gsqlparser`_
  
