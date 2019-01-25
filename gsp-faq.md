@@ -35,7 +35,7 @@ There is no distribution or deployment license fee which means you can deploy ge
 The only licensed developer can access APIs of General SQL Parser library, any third party developer or programs can't access APIs of General SQL Parser even it's wrapped by your own program.
 
 ##### Q: Will the license expire?
-> You can use the software without any time limitation. Furthermore, you can upgrade to the latest version of the software within 12 months after purchase.
+> You can use the software without any time limitation. It never expired. Furthermore, you can upgrade to the latest version of the software within 12 months after purchase.
 > However, if you like to upgrade to the latest version after 12 months, you need purchase our yearly subscription which enables another 12 months upgrade and free tech support.
 > the price for annual subscription is 30% of the original purchase. You will be notified when it's time to renew your license, You need to renew this annual subscription yourself.
 
