@@ -91,3 +91,17 @@ Where sal > 1000
 ```
 
 The value of `vEmp.eName` doesn't depends on `scott.emp.sal`, but the number of records in the `vEmp` depends on the `scott.emp.sal`, so this tool record this kind of relationship as well.
+
+Another type of impact is that the value of target column in depends on the value of the source column
+```sql
+select
+	case when a.kamut=1 and b.teur IS null
+			 then 'no locks'
+		 when a.kamut=1
+			then b.teur
+	else 'locks'
+	end teur
+from tbl a left join TT b on (a.key=b.key)
+``` 
+
+The value of select result: `teur` depends on the source column `tbl.kamut` in case expression, althrough it's value is not derived from `tbl.kamut` directly.
