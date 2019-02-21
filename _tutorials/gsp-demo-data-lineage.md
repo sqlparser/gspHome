@@ -104,4 +104,4 @@ select
 from tbl a left join TT b on (a.key=b.key)
 ``` 
 
-The value of select result: `teur` depends on the source column `tbl.kamut` in case expression, althrough it's value is not derived from `tbl.kamut` directly.
+The value of select result: `teur` depends on the source column `tbl.kamut` in case expression, although it's value is not derived from `tbl.kamut` directly.
