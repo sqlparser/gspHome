@@ -20,7 +20,7 @@ _getTableColumn /f path_to_sqlfile /t dbvendor /parameter_
 | `showSummary`  | Show the summary of database objects, if a table/column appears more than one time in the SQL script, it will be listed only once in this output   |
 | `showDetail`   | List the detailed information of the all database objects in the SQL script   |
 | `showTreeStructure`   | List the output of found database objects in a hierarchical level   |
-| `showBySQLClause`   | Sort table and column by SQL clause   |
+| `showBySQLClause`   | Show table and column group by SQL clause   |
 | `showJoin`   | List table and column used in the join condition, join condition in where clause also included   |
 {: rules="groups"}
 
@@ -114,6 +114,50 @@ sstplsql_createprocedure
    sst_assignstmt
   sst_assignstmt
 ```
+
+#### showBySQLClause
+Show table and column group by SQL clause.
+
+Take this SQL for example
+```sql
+SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
+```
+
+The generated result is:
+
+```
+Tables:
+	tetSelect
+		Orders(2,6)
+		Customers(3,12)
+Columns:
+	joinCondition
+		Orders.CustomerID(3,32)
+		Customers.CustomerID(3,53)
+	selectList
+		Orders.OrderID(1,15)
+		Orders.OrderDate(1,55)
+		Customers.CustomerName(1,34)
+
+```
+
+#### showJoin
+List table and column used in the join condition, join condition in where clause also included
+
+Take this SQL for example
+```sql
+SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
+```
+
+The generated result is:
+
+| JoinTable1 | JoinColumn1 | JoinTable2 | JoinColumn2 | JoinType | JoinOperator |
+|:--------|:--------|:--------|:--------|:--------|:--------|
+|Orders(3,25)|CustomerID(3,32)|Customers(3,43)|CustomerID(3,53)|inner|=|
 
 ### Handle the ambiguous columns in SQL script
 
