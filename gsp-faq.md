@@ -15,8 +15,9 @@ permalink: gsp-faq.html
 > GSP can validate SQL syntax without any connection to the database instance, no internet connection. GSP includes all SQL parser engines itself, no additional file or connection is needed.
 
 ##### Q: How long will my feature request or bug report be processed?
-> Issues reported by users usually will be fixed with 1-2 weeks for free, however, this is not guaranteed. In addition to providing you with our free tech support, 
-> we also offer customized services, please check info@sqlparser.com for the detailed information.
+> It depends. Various from weeks to months according to the complexity of the issue. 
+> In addition to providing you with our free tech support, 
+> we also offer customized services which fix the bug and implement the feature in time, please check info@sqlparser.com for the detailed information.
 
 ##### Q: When database vendor add new SQL syntax, how long will those SQL syntaxes be supported in general SQL parser?
 > General SQL Parser supports both PL/SQL and SQL. Although we try to add support for all SQL syntax of the database, it's quite difficult to make sure all SQL syntax of the database is supported especially keep up with the recent version. 
