@@ -39,4 +39,5 @@ CREATE TABLE COPS_ZT (
 
 Code to produce this error:
 
-<img src="images/post/parserReport.png">
+<img src="/images/post/parserReport.png">
+
