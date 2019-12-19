@@ -40,7 +40,7 @@ Support those major database platforms: db2, greenplum, hana, hive, impala, info
 
 ### The online live demo
 
-You may give a try of the online dataflow <a href="http://107.170.101.241:8080/dataflow/" class="btn btn--info">live demo</a>, OR download the <a href="http://sqlparser.com/download.php" class="btn btn--info"> executable version</a> which includes more features and much faster to process huge SQL scripts (in order to run this tool, JRE 1.5 or higher need to be installed).
+You may give a try of the online dataflow <a href="https://www.gudusoft.com/sqlflow" class="btn btn--info">live demo</a>.
 
 ### The relationship between target/source columns
 
@@ -105,3 +105,7 @@ from tbl a left join TT b on (a.key=b.key)
 ``` 
 
 The value of select result: `teur` depends on the source column `tbl.kamut` in case expression, although it's value is not derived from `tbl.kamut` directly.
+
+#### Further reading
+Please check [this document](https://github.com/sqlparser/sqlflow_public/blob/master/dbobjects_relationship.md) for the detailed explanation of the relationship 
+used in the dataflow.
