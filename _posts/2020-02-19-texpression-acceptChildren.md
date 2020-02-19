@@ -16,7 +16,7 @@ class TreeVisitor extends TParseTreeVisitor {
     }
 ```
 
-The above code will cause the left and right sub-expression repeatedly visited, if the expression itself is deeply nested, then the performance will be impacted severly.
+The above code will cause the left and right sub-expression repeatedly visited, if the expression itself is deeply nested, then the performance will be impacted severely.
 
 Since the `acceptChildren()` method of `TExpression` will iterate all sub-expression for you automatically, you **shouldn't** call `acceptChildren()` in the `preVisit()` method of your own visitor. Only add your business code in the `preVisit()` method and let the `acceptChildren()` method of `TExpression` do the iteration for you.
 
