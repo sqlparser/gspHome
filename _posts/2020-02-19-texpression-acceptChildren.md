@@ -20,6 +20,8 @@ The above code will cause the left and right sub-expression repeatedly visited, 
 
 Since the `acceptChildren()` method of `TExpression` will iterate all sub-expression for you automatically, you **shouldn't** call `acceptChildren()` in the `preVisit()` method of your own visitor. Only add your business code in the `preVisit()` method and let the `acceptChildren()` method of `TExpression` do the iteration for you.
 
+If you want to iterate all sub-expression in your own code, please use `accept()` method instead of `acceptChildren()`.
+
 Below is the code of the `acceptChildren()` method of `TExpression` for your reference.
 
 ```csharp
