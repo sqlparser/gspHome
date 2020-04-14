@@ -26,7 +26,7 @@ create view v as select * from t where column1 + column2 > 0;
 
 [Visualize the SQL](https://www.gudusoft.com/sqlflow/#/?setting=01010&dbv=mssql&sql=create%20view%20v%20as%20select%20%2A%20from%20t%20where%20column1%20%2B%20column2%20%3E%200%3B)
 
-The GSP will know `column1` and `column2` must belonged to table `t`, 
+The GSP will know `column1` and `column2` must belonged to table `t`, so this relation is created:
 ```xml
 <relation id="1" type="fdd" effectType="select">
   <target id="7" column="*" parent_id="6" parent_name="RS-1" coordinate="[1,25],[1,26]"/>
@@ -50,9 +50,9 @@ and the resultset outputed in the `select *` must include `column1` and `column2
 
 Please note that the relation id is in the format of `1_index`, where the index is 0,1. 
 This means that those columns are not really listed in the select list, but derived from the star column in the select list
-with the relation id to `1`.
+whose relation id is `1`.
 
-Also, `column1` and `column2` in the view: `t` is derived from the star column with the following relation map.
+Also, `column1` and `column2` listed in the view: `t` is derived from the star column with the following relation map.
 
 ```xml
 <relation id="3_0" type="fdd" effectType="create_view">
