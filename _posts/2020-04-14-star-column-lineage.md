@@ -24,6 +24,8 @@ The GSP can do a little better if the SQL is something like this:
 create view v as select * from t where column1 + column2 > 0;
 ```
 
+[Visualize the SQL](https://www.gudusoft.com/sqlflow/#/?setting=01010&dbv=mssql&sql=create%20view%20v%20as%20select%20%2A%20from%20t%20where%20column1%20%2B%20column2%20%3E%200%3B)
+
 The GSP will know `column1` and `column2` must belonged to table `t`, 
 ```xml
 <relation id="1" type="fdd" effectType="select">
