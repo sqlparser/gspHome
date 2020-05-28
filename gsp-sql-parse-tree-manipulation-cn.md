@@ -12,13 +12,10 @@ permalink: gsp-sql-parse-tree-manipulation-cn.html
 1. 对已有node进行修改，用 `TParseTreeNode.setText()` 来实现。
 该方法会同时更新node在token chain中对应的token。
 
-2. 把node从树上删除，用 `TParseTreeNode.removeFromTokenChain()`。
-该方法把node在token chain中的token移除。
+2. 把node从树上删除，需使用相关的方法。 然后调用`TParseTreeNode.removeFromTokenChain()`把node在token chain中的token移除。
 
-3. 在语法树上添加新的node。
-`TParseTreeNode.addToTokenChain(TSourceToken anchorToken, boolean beforeAnchorToken)`。
-node添加到语法树上时，在anchorToken后插入该node的token流。如果 `beforeAnchorToken = true`，
-在查找前面。
+3. 在语法树上添加新的node，需使用相关方法把node添加到语法树上。然后用`TParseTreeNode.addToTokenChain(TSourceToken anchorToken, boolean beforeAnchorToken)`
+在anchorToken后插入该node的token流。如果 `beforeAnchorToken = true`，在anchorToken前插入。以达到同步token流的目的。
 一般由parent node决定 anchorToken, 即本 node token的插入位置。
 
 
