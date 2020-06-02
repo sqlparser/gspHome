@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!--
+    So Simple Jekyll Theme 3.1.1
+    Copyright 2013-2018 Michael Rose - mademistakes.com | @mmistakes
+    Free for personal and commercial use under the MIT license
+    https://github.com/mmistakes/so-simple-theme/blob/master/LICENSE
+-->
+<html lang="en-US" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+
+  
+    
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>General SQL Parser FAQ | General SQL Parser</title>
+<meta name="generator" content="Jekyll v3.7.3" />
+<meta property="og:title" content="General SQL Parser FAQ" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Documents and demos for General SQL Parser" />
+<meta property="og:description" content="Documents and demos for General SQL Parser" />
+<link rel="canonical" href="http://support.sqlparser.com/gsp-faq.html" />
+<meta property="og:url" content="http://support.sqlparser.com/gsp-faq.html" />
+<meta property="og:site_name" content="General SQL Parser" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<script type="application/ld+json">
+{"url":"http://support.sqlparser.com/gsp-faq.html","headline":"General SQL Parser FAQ","description":"Documents and demos for General SQL Parser","@type":"WebPage","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+  <script>
+    /* Cut the mustard */
+    if ( 'querySelector' in document && 'addEventListener' in window ) {
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+    }
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i|Lora:400,400i,700,700i">
+  <link rel="alternate" type="application/atom+xml" title="General SQL Parser" href="/atom.xml">
+<!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+</head>
+
+
+  <body class="layout--page  general-sql-parser-faq">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#primary-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+  <div class="navigation-wrapper">
+    <a href="#menu-toggle" id="menu-toggle">Menu</a>
+    <nav id="primary-nav" class="site-nav animated drop">
+      <ul><li><a href="/">Home</a></li><li><a href="/posts/">Posts</a></li><li><a href="/categories/">Categories</a></li><li><a href="/tags/">Tags</a></li><li><a href="/recipes/">Recipes</a></li><li><a href="/search/">Search</a></li><li><a href="http://www.sqlparser.com">GSP</a></li></ul>
+    </nav>
+  </div><!-- /.navigation-wrapper -->
+
+
+    <header class="masthead">
+  <div class="wrap">
+    
+    
+      <h1 class="site-title animated fadeIn"><a href="/">General SQL Parser</a></h1>
+      <p class="site-description animated fadeIn" itemprop="description">Documents and demos for General SQL Parser</p>
+    
+  </div>
+</header><!-- /.masthead -->
+
+
+    <main id="main" class="main-content" aria-label="Content">
+  <article>
+    
+
+    <div class="page-wrapper">
+      <header class="page-header">
+        
+        
+          <h1 id="page-title" class="page-title">General SQL Parser FAQ</h1>
+        
+      </header>
+      <div class="page-content">
+        <div id="entry-table-of-contents" class="toc-wrapper">
+  <h2 id="toc-toggle" class="no_toc">
+  Table of Contents <i class="toc-toggle-icon fas fa-chevron-down"></i>
+</h2>
+<ol id="markdown-toc">
+  <li><a href="#technical-support" id="markdown-toc-technical-support">Technical support</a>    <ol>
+      <li><a href="#q-does-general-sql-parser-depend-on-any-third-party-librarysoftwaredlls" id="markdown-toc-q-does-general-sql-parser-depend-on-any-third-party-librarysoftwaredlls">Q: Does general SQL parser depend on any third party library/software/DLLs?</a></li>
+      <li><a href="#q-in-order-to-use-gsp-to-validate-sql-syntax-do-i-need-to-connect-to-a-database-instance-such-as-oracle" id="markdown-toc-q-in-order-to-use-gsp-to-validate-sql-syntax-do-i-need-to-connect-to-a-database-instance-such-as-oracle">Q: In order to use GSP to validate SQL syntax, do I need to connect to a database instance such as Oracle?</a></li>
+      <li><a href="#q-how-long-will-my-feature-request-or-bug-report-be-processed" id="markdown-toc-q-how-long-will-my-feature-request-or-bug-report-be-processed">Q: How long will my feature request or bug report be processed?</a></li>
+      <li><a href="#q-when-database-vendor-add-new-sql-syntax-how-long-will-those-sql-syntaxes-be-supported-in-general-sql-parser" id="markdown-toc-q-when-database-vendor-add-new-sql-syntax-how-long-will-those-sql-syntaxes-be-supported-in-general-sql-parser">Q: When database vendor add new SQL syntax, how long will those SQL syntaxes be supported in general SQL parser?</a></li>
+    </ol>
+  </li>
+  <li><a href="#licensing-and-billing" id="markdown-toc-licensing-and-billing">Licensing and billing</a>    <ol>
+      <li><a href="#q-whats-kind-of-general-sql-parser-license-do-i-need" id="markdown-toc-q-whats-kind-of-general-sql-parser-license-do-i-need">Q: What’s kind of General SQL Parser license do I need?</a></li>
+      <li><a href="#q-will-the-license-expire" id="markdown-toc-q-will-the-license-expire">Q: Will the license expire?</a></li>
+      <li><a href="#q-if-i-were-to-buy-support-for-one-database-to-start--can-i-add-additional-ones-at-a-later-date" id="markdown-toc-q-if-i-were-to-buy-support-for-one-database-to-start--can-i-add-additional-ones-at-a-later-date">Q: if I were to buy support for one database to start – can I add additional ones at a later date?</a></li>
+      <li><a href="#q-we-have-a-need-to-create-a-parsing-service-can-we-use-the-components-to-develop-a-parser-and-then-deploy-the-service-to-a-web-like-tomcat-for-other-to-consume-via-api-or-is-this-specific-to-a-specific-user-and-a--specific-users-machine" id="markdown-toc-q-we-have-a-need-to-create-a-parsing-service-can-we-use-the-components-to-develop-a-parser-and-then-deploy-the-service-to-a-web-like-tomcat-for-other-to-consume-via-api-or-is-this-specific-to-a-specific-user-and-a--specific-users-machine">Q: We have a need to create a parsing service. Can we use the components to develop a parser and then deploy the service to a web-like Tomcat for other to consume via API or is this specific to a specific user and a  specific user’s machine?</a></li>
+      <li><a href="#q-may-i-use-gsp-in-more-than-one-product" id="markdown-toc-q-may-i-use-gsp-in-more-than-one-product">Q: May I use GSP in more than one product?</a></li>
+    </ol>
+  </li>
+  <li><a href="#sales-and-reseller" id="markdown-toc-sales-and-reseller">Sales and reseller</a>    <ol>
+      <li><a href="#q-we-are-resellers-can-we-purchase-your-products-for-our-customers" id="markdown-toc-q-we-are-resellers-can-we-purchase-your-products-for-our-customers">Q: We are resellers. can we purchase your products for our customers?</a></li>
+      <li><a href="#q-can-we-purchase-via-emailed-po" id="markdown-toc-q-can-we-purchase-via-emailed-po">Q: Can we purchase via emailed PO</a></li>
+    </ol>
+  </li>
+</ol>
+
+</div>
+
+<h3 id="technical-support">Technical support</h3>
+
+<h5 id="q-does-general-sql-parser-depend-on-any-third-party-librarysoftwaredlls">Q: Does general SQL parser depend on any third party library/software/DLLs?</h5>
+<blockquote>
+  <p>General SQL Parser(GSP) doesn’t depend on any third party library/software/DLLs.  In order to run GSP Java version, JRE 1.5 is needed. In order to run GSP .NET version, .NET Framework 4.5 or higher is needed.</p>
+</blockquote>
+
+<h5 id="q-in-order-to-use-gsp-to-validate-sql-syntax-do-i-need-to-connect-to-a-database-instance-such-as-oracle">Q: In order to use GSP to validate SQL syntax, do I need to connect to a database instance such as Oracle?</h5>
+<blockquote>
+  <p>GSP can validate SQL syntax without any connection to the database instance, no internet connection. GSP includes all SQL parser engines itself, no additional file or connection is needed.</p>
+</blockquote>
+
+<h5 id="q-how-long-will-my-feature-request-or-bug-report-be-processed">Q: How long will my feature request or bug report be processed?</h5>
+<blockquote>
+  <p>Issues reported by users usually will be fixed with 1-2 weeks for free, however, this is not guaranteed. In addition to providing you with our free tech support, we also offer customized services, click here for detailed information.</p>
+</blockquote>
+
+<h5 id="q-when-database-vendor-add-new-sql-syntax-how-long-will-those-sql-syntaxes-be-supported-in-general-sql-parser">Q: When database vendor add new SQL syntax, how long will those SQL syntaxes be supported in general SQL parser?</h5>
+<blockquote>
+  <p>General SQL Parser supports both PL/SQL and SQL. Although we try to add support for all SQL syntax of the database, it’s quite difficult to make sure all SQL syntax of the database is supported especially keep up with the recent version.</p>
+
+  <p>The goal of General SQL Parser is NOT to support all SQL syntax of the database, but support the most used SQL syntax. So, our strategy is to add support for the new SQL syntax when it is requested by the user.</p>
+</blockquote>
+
+<h3 id="licensing-and-billing">Licensing and billing</h3>
+
+<h5 id="q-whats-kind-of-general-sql-parser-license-do-i-need">Q: What’s kind of General SQL Parser license do I need?</h5>
+<blockquote>
+  <p>General SQL Parser is licensed as per user/developer. There are 3 types of developer license: single user license, team license(2-5 developers) and site license(more than 5 developers).
+All those licenses grant the developer the right to install and use multiple copies of the Software. You also need to specify the database platforms that need to be included when you purchase the license.
+There is no distribution or deployment license fee which means you can deploy general SQL parser library together with your product to the end user without any limitation.
+The only licensed developer can access APIs of General SQL Parser library, any third party developer or programs can’t access APIs of General SQL Parser even it’s wrapped by your own program.</p>
+</blockquote>
+
+<h5 id="q-will-the-license-expire">Q: Will the license expire?</h5>
+<blockquote>
+  <p>You can use the software without any time limitation. Furthermore, you can upgrade to the latest version of the software within 12 months after purchase.
+However, if you like to upgrade to the latest version after 12 months, you need purchase our yearly subscription which enables another 12 months upgrade and free tech support.
+the price for annual subscription is 30% of the original purchase. You will be notified when it’s time to renew your license, You need to renew this annual subscription yourself.</p>
+</blockquote>
+
+<h5 id="q-if-i-were-to-buy-support-for-one-database-to-start--can-i-add-additional-ones-at-a-later-date">Q: if I were to buy support for one database to start – can I add additional ones at a later date?</h5>
+<blockquote>
+  <p>Yes, of course. You only need to pay the price for the additional database when you need.</p>
+</blockquote>
+
+<h5 id="q-we-have-a-need-to-create-a-parsing-service-can-we-use-the-components-to-develop-a-parser-and-then-deploy-the-service-to-a-web-like-tomcat-for-other-to-consume-via-api-or-is-this-specific-to-a-specific-user-and-a--specific-users-machine">Q: We have a need to create a parsing service. Can we use the components to develop a parser and then deploy the service to a web-like Tomcat for other to consume via API or is this specific to a specific user and a  specific user’s machine?</h5>
+<blockquote>
+  <p>General SQL Parser is licensed as per user/developer. A developer license is needed If any user/developer/machine need to access API, even a wrapper is created and API of GSP is not accessed directly.</p>
+</blockquote>
+
+<h5 id="q-may-i-use-gsp-in-more-than-one-product">Q: May I use GSP in more than one product?</h5>
+<blockquote>
+  <p>Yes. There is no limitation of how many products GSP can be used in.</p>
+</blockquote>
+
+<h3 id="sales-and-reseller">Sales and reseller</h3>
+
+<h5 id="q-we-are-resellers-can-we-purchase-your-products-for-our-customers">Q: We are resellers. can we purchase your products for our customers?</h5>
+<blockquote>
+  <p>Yes, you can purchase software from our online shop on behalf of your customer. After purchasing software, email us detailed information about your customer. The full licensed version should be available to download from our site within 48 hours after we receive your order. 
+There is no discount for reseller within the first 50 licenses.</p>
+</blockquote>
+
+<h5 id="q-can-we-purchase-via-emailed-po">Q: Can we purchase via emailed PO</h5>
+<blockquote>
+  <p>Yes, our  award-winning payment processor support emailed PO</p>
+</blockquote>
+
+
+        
+      </div>
+    </div>
+  </article>
+</main>
+
+
+    <footer id="footer" class="site-footer">
+  <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+<div class="social-icons"><a class="social-icon" href="/atom.xml"><i class="fas fa-rss-square fa-2x" title="Feed"></i></a></div><div class="copyright">
+    
+      <p>&copy; 2018 General SQL Parser. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/mmistakes/so-simple-theme" rel="nofollow">So Simple</a>.</p>
+    
+  </div>
+</footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+<!-- MathJax -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  </body>
+
+</html>

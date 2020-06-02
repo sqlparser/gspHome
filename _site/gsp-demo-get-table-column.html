@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<!--
+    So Simple Jekyll Theme 3.1.1
+    Copyright 2013-2018 Michael Rose - mademistakes.com | @mmistakes
+    Free for personal and commercial use under the MIT license
+    https://github.com/mmistakes/so-simple-theme/blob/master/LICENSE
+-->
+<html lang="en-US" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+
+  
+    
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Extracts the table/column from SQL script | General SQL Parser</title>
+<meta name="generator" content="Jekyll v3.7.3" />
+<meta property="og:title" content="Extracts the table/column from SQL script" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Documents and demos for General SQL Parser" />
+<meta property="og:description" content="Documents and demos for General SQL Parser" />
+<link rel="canonical" href="http://support.sqlparser.com/gsp-demo-get-table-column.html" />
+<meta property="og:url" content="http://support.sqlparser.com/gsp-demo-get-table-column.html" />
+<meta property="og:site_name" content="General SQL Parser" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<script type="application/ld+json">
+{"url":"http://support.sqlparser.com/gsp-demo-get-table-column.html","headline":"Extracts the table/column from SQL script","description":"Documents and demos for General SQL Parser","@type":"WebPage","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+  <script>
+    /* Cut the mustard */
+    if ( 'querySelector' in document && 'addEventListener' in window ) {
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+    }
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i|Lora:400,400i,700,700i">
+  <link rel="alternate" type="application/atom+xml" title="General SQL Parser" href="/atom.xml">
+<!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+</head>
+
+
+  <body class="layout--page  extracts-the-table-column-from-sql-script">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#primary-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+  <div class="navigation-wrapper">
+    <a href="#menu-toggle" id="menu-toggle">Menu</a>
+    <nav id="primary-nav" class="site-nav animated drop">
+      <ul><li><a href="/">Home</a></li><li><a href="/posts/">Posts</a></li><li><a href="/categories/">Categories</a></li><li><a href="/tags/">Tags</a></li><li><a href="/recipes/">Recipes</a></li><li><a href="/search/">Search</a></li><li><a href="http://www.sqlparser.com">GSP</a></li></ul>
+    </nav>
+  </div><!-- /.navigation-wrapper -->
+
+
+    <header class="masthead">
+  <div class="wrap">
+    
+    
+      <h1 class="site-title animated fadeIn"><a href="/">General SQL Parser</a></h1>
+      <p class="site-description animated fadeIn" itemprop="description">Documents and demos for General SQL Parser</p>
+    
+  </div>
+</header><!-- /.masthead -->
+
+
+    <main id="main" class="main-content" aria-label="Content">
+  <article>
+    
+
+    <div class="page-wrapper">
+      <header class="page-header">
+        
+        
+          <h1 id="page-title" class="page-title">Extracts the table/column from SQL script</h1>
+        
+      </header>
+      <div class="page-content">
+        <div id="entry-table-of-contents" class="toc-wrapper">
+  <h2 id="toc-toggle" class="no_toc">
+  Table of Contents <i class="toc-toggle-icon fas fa-chevron-down"></i>
+</h2>
+<ol id="markdown-toc">
+  <li><a href="#run-this-tool" id="markdown-toc-run-this-tool">Run this tool</a></li>
+  <li><a href="#live-demo" id="markdown-toc-live-demo">Live demo</a></li>
+  <li><a href="#the-detailed-explanation-of-the-output" id="markdown-toc-the-detailed-explanation-of-the-output">The detailed explanation of the output</a>    <ol>
+      <li><a href="#show-the-detailed-information" id="markdown-toc-show-the-detailed-information">Show the detailed information</a></li>
+      <li><a href="#show-the-summary-information" id="markdown-toc-show-the-summary-information">Show the summary information</a></li>
+      <li><a href="#show-the-tree-structure" id="markdown-toc-show-the-tree-structure">Show the tree structure</a></li>
+    </ol>
+  </li>
+  <li><a href="#handle-the-ambiguous-columns-in-sql-script" id="markdown-toc-handle-the-ambiguous-columns-in-sql-script">Handle the ambiguous columns in SQL script</a>    <ol>
+      <li><a href="#just-report-an-orphan-column-is-found" id="markdown-toc-just-report-an-orphan-column-is-found">Just report an orphan column is found.</a></li>
+      <li><a href="#link-to-the-first-table-in-the-table-list" id="markdown-toc-link-to-the-first-table-in-the-table-list">Link to the first table in the table list</a></li>
+      <li><a href="#provide-database-meta-info-to-link-the-orphan-column-to-the-right-table" id="markdown-toc-provide-database-meta-info-to-link-the-orphan-column-to-the-right-table">Provide database meta info to link the orphan column to the right table</a></li>
+    </ol>
+  </li>
+  <li><a href="#handle-the-star--column" id="markdown-toc-handle-the-star--column">Handle the star (*) column</a></li>
+  <li><a href="#need-more-information-about-the-table-and-column-relationship-and-data-flow" id="markdown-toc-need-more-information-about-the-table-and-column-relationship-and-data-flow">Need more information about the table and column relationship and data flow?</a></li>
+  <li><a href="#further-works" id="markdown-toc-further-works">Further works</a></li>
+  <li><a href="#how-to-get-this-tool" id="markdown-toc-how-to-get-this-tool">How to get this tool</a></li>
+  <li><a href="#changelogs" id="markdown-toc-changelogs">Changelogs</a></li>
+</ol>
+
+</div>
+
+<h3 id="run-this-tool">Run this tool</h3>
+
+<p>This tool will fetch table, column and column index inside the SQL script including PL/SQL. You can find this tool in demo\gettablecolumns shipped together with general SQL parser library Java and .NET version.</p>
+
+<p><em>getTableColumn /f path_to_sqlfile /t dbvendor /parameter</em></p>
+
+<p>(<strong>In order to run this tool, JRE 1.5 or .NET framework 4.5 or higher need to be installed.</strong>)</p>
+
+<table rules="groups">
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">showSummary</code></td>
+      <td style="text-align: left">Show the summary of database objects, if a table/column appears more than one time in the SQL script, it will be listed only once in this output</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">showDetail</code></td>
+      <td style="text-align: left">List the detailed information of the all database objects in the SQL script</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">showTreeStructure</code></td>
+      <td style="text-align: left">List the output of found database objects in a hierarchical level</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">showBySQLClause</code></td>
+      <td style="text-align: left">Sort table and column by SQL clause</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">showJoin</code></td>
+      <td style="text-align: left">List table and column used in the join condition, join condition in where clause also included</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="live-demo">Live demo</h3>
+
+<p>We have set up an online live demo for this too, please give it a try: <a href="http://107.170.101.241:8080/getTableColumn/" class="btn btn--info">Get table column demo</a></p>
+
+<h3 id="the-detailed-explanation-of-the-output">The detailed explanation of the output</h3>
+
+<h5 id="show-the-detailed-information">Show the detailed information</h5>
+
+<p>This is an example output when <code class="highlighter-rouge">showDetail</code> is set to true:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>filename|spname|object type|schema|table|table effect
+c:\prg\tmp\demo.sql||table||customers|tetCreate
+ 
+filename|spname|object type|schema|table|column|location|linePos|columnPos|datatype
+c:\prg\tmp\demo.sql||column||customers|customer_id|createTable|2|3|number:10
+c:\prg\tmp\demo.sql||column||customers|customer_name|createTable|3|1|varchar2:50
+c:\prg\tmp\demo.sql||column||customers|address|createTable|4|1|varchar2:50
+c:\prg\tmp\demo.sql||column||customers|city|createTable|5|1|varchar2:50
+c:\prg\tmp\demo.sql||column||customers|state|createTable|6|1|varchar2:25
+c:\prg\tmp\demo.sql||column||customers|zip_code|createTable|7|1|varchar2:10
+ 
+filename|spname|object type|schema|index|table|column|location|line|column
+c:\prg\tmp\demo.sql||index||customers_pk|customers|customer_id|unknown|8|38
+</code></pre></div></div>
+
+<ol>
+  <li>filename is the SQL script file, “N/A” means file name is not available.</li>
+  <li>spname: the stored procedure where this object is found. “N/A” means stored procedure is not available.</li>
+  <li>object type: the database object type listed in this line.</li>
+  <li>schema: the schema this object belongs to. “N/A” means schema is not available.</li>
+  <li>table: the table this object belongs to if any.</li>
+  <li>column: name of this column</li>
+  <li>location: SQL clause where this column was found, such as select list, where clause, update clause.</li>
+  <li>linePos, columnPos: line and column number in the script.</li>
+  <li>datatype: if this is a column in create table statement, datatype of this column will be listed.</li>
+</ol>
+
+<h5 id="show-the-summary-information">Show the summary information</h5>
+
+<p>This is an example output when <code class="highlighter-rouge">showSummary</code> is set to true:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Tables:
+t_av_internal
+t_invoice
+t_usage_interval
+ 
+Fields:
+missed.id_acc
+t_av_internal.c_currency
+t_av_internal.id_acc
+t_invoice.current_balance
+t_invoice.id_interval
+t_invoice.invoice_currency
+t_usage_interval.dt_end
+t_usage_interval.id_interval
+</code></pre></div></div>
+
+<h5 id="show-the-tree-structure">Show the tree structure</h5>
+
+<p>This is an example output when <code class="highlighter-rouge">showTreeStructure</code> is set to true:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sstplsql_createprocedure
+ sst_loopstmt
+  sstselect
+   t_invoice(tetSelect)
+     id_interval(joinCondition)
+     current_balance(resultColumn)
+     invoice_currency(resultColumn)
+   t_usage_interval(tetSelect)
+     id_interval(joinCondition)
+     dt_end(resultColumn)
+     dt_end(where)
+     dt_end(orderby)
+    orphan columns:
+     id_acc(where)
+  sst_assignstmt
+  sst_assignstmt
+  sst_assignstmt
+  sst_exitstmt
+ sst_ifstmt
+  sst_assignstmt
+  sst_loopstmt
+   sstselect
+    t_av_internal(tetSelect)
+      c_currency(resultColumn)
+      id_acc(where)
+   sst_assignstmt
+  sst_assignstmt
+</code></pre></div></div>
+
+<h3 id="handle-the-ambiguous-columns-in-sql-script">Handle the ambiguous columns in SQL script</h3>
+
+<p>Sometimes columns used in the SQL script was not qualified which make it’s difficult or even impossible to find out which table this column belongs to. Take this SQL for example:</p>
+
+<p>The ambiguous column SQL example</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">select</span> <span class="n">ename</span>
+<span class="k">from</span> <span class="n">emp</span><span class="p">,</span> <span class="n">dept</span>
+<span class="k">where</span> <span class="n">emp</span><span class="p">.</span><span class="n">deptid</span> <span class="o">=</span> <span class="n">dept</span><span class="p">.</span><span class="n">id</span>
+</code></pre></div></div>
+
+<p>column ename in the first line is not qualified by table emp, so it’s ambiguous to know which table this column belongs to emp or dept.</p>
+
+<p>General SQL Parser hanlde such kind of SQL in three ways.</p>
+
+<h5 id="just-report-an-orphan-column-is-found">Just report an orphan column is found.</h5>
+
+<p>Below is the output generated by this tool by default:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>filename|spname|object type|schema|table|column|location|linePos|columnPos|datatype
+c:\prg\tmp\demo.sql|N/A|column|N/A|dept|dept.id|where|3|25|
+c:\prg\tmp\demo.sql|N/A|column|N/A|missed|ename|resultColumn|1|8|
+</code></pre></div></div>
+
+<p>As you can see, table name of the column: ename was set to “missed” which means this tool can’t detect the relationship between table emp and column ename.</p>
+
+<h5 id="link-to-the-first-table-in-the-table-list">Link to the first table in the table list</h5>
+
+<p>There is a parameter (linkOrphanColumnToFirstTable) you can use to link the orphan column to the first table in the from clause.  When linkOrphanColumnToFirstTable set to true, the output is:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>filename|spname|object type|schema|table|column|location|linePos|columnPos|datatype
+c:\prg\tmp\demo.sql|N/A|column|N/A|dept|dept.id|where|3|25|
+c:\prg\tmp\demo.sql|N/A|column|N/A|emp|ename|resultColumn|1|8|
+</code></pre></div></div>
+
+<h5 id="provide-database-meta-info-to-link-the-orphan-column-to-the-right-table">Provide database meta info to link the orphan column to the right table</h5>
+
+<p>Providing the database meta information by using the <code class="highlighter-rouge">IMetaDatabase</code> interface in the parser,  the orphan column can be linked to the corresponded table correctly.</p>
+
+<p>You may check the class <code class="highlighter-rouge">sampleMetaDB</code> shipped together with the library to see how to provide the database meta information. Typically, you need to connect to a database server and fetch the meta information in this class. When you implement such a class, General SQL Parser will automatically use that meta information to link the table and columns correctly.</p>
+
+<p>database meta info provider</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">setMetaDatabase</span><span class="o">(</span><span class="k">new</span> <span class="n">sampleMetaDB</span><span class="o">())</span>
+</code></pre></div></div>
+
+<h3 id="handle-the-star--column">Handle the star (*) column</h3>
+
+<p>The star column means all columns in a table. This column will be linked to the table as well. If the star column in the select list is not qualified with a table name, then it will be linked to all tables in the from clause.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">select</span> <span class="o">*</span>
+<span class="k">from</span> <span class="n">emp</span><span class="p">,</span> <span class="n">dept</span>
+<span class="k">where</span> <span class="n">emp</span><span class="p">.</span><span class="n">deptid</span> <span class="o">=</span> <span class="n">dept</span><span class="p">.</span><span class="n">id</span>
+</code></pre></div></div>
+
+<p>The select list in the above SQL query will list all columns in both emp and dept table. so, the output generated by this tool is:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>filename|spname|object type|schema|table|column|location|linePos|columnPos|datatype
+c:\prg\tmp\demo.sql|N/A|column|N/A|emp|*|resultColumn|1|8|
+c:\prg\tmp\demo.sql|N/A|column|N/A|emp|emp.deptid|where|3|11|
+ 
+filename|spname|object type|schema|table|column|location|linePos|columnPos|datatype
+c:\prg\tmp\demo.sql|N/A|column|N/A|dept|*|resultColumn|1|8|
+c:\prg\tmp\demo.sql|N/A|column|N/A|dept|dept.id|where|3|25|
+</code></pre></div></div>
+
+<p>There is a parameter:<code class="highlighter-rouge">listStarColumn</code> in this tool that you can use to control the output of star column. This parameter only affects the output of <code class="highlighter-rouge">summary output</code>, it doesn’t affect the output of the <code class="highlighter-rouge">detailed output</code> which always list the star column.</p>
+
+<h3 id="need-more-information-about-the-table-and-column-relationship-and-data-flow">Need more information about the table and column relationship and data flow?</h3>
+
+<p>This tool lists all table and columns involved in the SQL script. However, it doesn’t tell you the relationship between columns of different tables, it doesn’t tell the data flow among the table and columns.</p>
+
+<p>If you want to know when a value of the column is updated, how many other table and columns will be affected. Or, If you want to know the value of a source column was calculated from which target columns,</p>
+
+<p>then this tool won’t help. The good news is that we do provide another tool: Dlineage <sup id="fnref:dlineage"><a href="#fn:dlineage" class="footnote">1</a></sup> which do all the above thing for you.</p>
+
+<h3 id="further-works">Further works</h3>
+
+<p>Current version extracts the table, column and index column from the SQL script. Other database objects in the SQL script is not listed yet.</p>
+
+<h3 id="how-to-get-this-tool">How to get this tool</h3>
+
+<p>This tool shipped together with the General SQL Parser library and under the demos\gettablecolums directory. You may also download the source code of this tool from here and modify it to meet your own requirement.</p>
+
+<h3 id="changelogs">Changelogs</h3>
+
+<ul>
+  <li>(2017-11-01)  Add showBySQLClause,showJoin output options.</li>
+  <li>(2017-08-21)  Add the detailed output.</li>
+  <li>(2017-08-10) List datatype information if the column is in create table statement.</li>
+  <li>(2017-08-10) List index columns</li>
+</ul>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:dlineage">
+      <p><a href="http://support.sqlparser.com/gsp-demo-data-lineage">Data lineage article</a> <a href="#fnref:dlineage" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+
+        
+      </div>
+    </div>
+  </article>
+</main>
+
+
+    <footer id="footer" class="site-footer">
+  <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+<div class="social-icons"><a class="social-icon" href="/atom.xml"><i class="fas fa-rss-square fa-2x" title="Feed"></i></a></div><div class="copyright">
+    
+      <p>&copy; 2018 General SQL Parser. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/mmistakes/so-simple-theme" rel="nofollow">So Simple</a>.</p>
+    
+  </div>
+</footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+<!-- MathJax -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  </body>
+
+</html>
