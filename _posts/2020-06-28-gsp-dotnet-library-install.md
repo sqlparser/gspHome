@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: "Install and use the Genearl SQL Parser package using the dotnet CLI"
 permalink: gsp-dotnet-library-install.html
 categories:
