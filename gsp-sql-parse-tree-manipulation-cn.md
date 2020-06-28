@@ -3,6 +3,8 @@ layout: page
 title: "Overview of General SQL Parser - sql parse tree manipulation"
 excerpt: "A general review/summary of General SQL Parser: sql parser tree manipulation"
 permalink: gsp-sql-parse-tree-manipulation-cn.html
+categories:
+  - get-started
 ---
 
 {% include toc %}

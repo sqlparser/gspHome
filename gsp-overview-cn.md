@@ -3,6 +3,8 @@ layout: page
 title: "Overview of General SQL Parser"
 excerpt: "A general review/summary of General SQL Parser"
 permalink: gsp-overview-cn.html
+categories:
+  - get-started
 ---
 
 {% include toc %}

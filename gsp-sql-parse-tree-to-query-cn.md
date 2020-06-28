@@ -3,6 +3,8 @@ layout: page
 title: "Overview of General SQL Parser - sql parse tree to query"
 excerpt: "A general review/summary of General SQL Parser: sql parser tree to query"
 permalink: gsp-sql-parse-tree-to-query-cn.html
+categories:
+  - get-started
 ---
 
 {% include toc %}
