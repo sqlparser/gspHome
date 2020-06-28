@@ -4,7 +4,7 @@ title: "Overview of General SQL Parser"
 excerpt: "A general review/summary of General SQL Parser"
 permalink: gsp-overview-cn.html
 categories:
-  - get-started
+  - get-started-cn
 ---
 
 {% include toc %}
