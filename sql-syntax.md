@@ -1,5 +1,6 @@
 ---
 layout: page
+title: "Articles in sql-syntax category"
 excerpt: "SQL syntax"
 show_excerpts: true
 paginate: true

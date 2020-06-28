@@ -8,5 +8,7 @@
   url: /gsp-faq.html
 - title: Posts
   url: /posts/  
-- title: Live Demo
+- title: Categories
+  url: /categories/  
+ - title: Live Demo
   url: http://sqlparser.com/livedemo.php
