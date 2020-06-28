@@ -7,7 +7,7 @@ entries_layout: list
 ---
 
 ### Get started
-- [Overview](/gsp-overview.html) [中文版](/get-started-cn.html)
+- [Overview](/gsp-overview.html) [中文版](/get-started-cn)
 - [Install and use the Genearl SQL Parser package using the dotnet CLI](/gsp-dotnet-library-install.html)
 
 ### Tutorials
