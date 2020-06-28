@@ -1,8 +1,10 @@
 ---
-layout: page
+layout: post
 title: "Overview of General SQL Parser"
 excerpt: "A general review/summary of General SQL Parser"
 permalink: gsp-overview.html
+categories:
+  - get-started
 ---
 
 {% include toc %}

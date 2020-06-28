@@ -1,3 +1,9 @@
+---
+layout: post
+categories:
+  - gsp-dotnet
+---
+
 General SQL Parser .NET version
 
 We have have confirmed, that the issue appears strictly only with .NET framework 4.6.1586.0, but happens just sometimes.

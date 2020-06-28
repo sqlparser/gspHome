@@ -1,4 +1,9 @@
-values-clause
+---
+layout: post
+title: "values-clause and TSelectSqlStatement"
+categories:
+  - sql-syntax
+---
 
 ```
 values-clause

@@ -1,4 +1,12 @@
-User should be careful When use acceptChildren() method in the `public void preVisit(TExpression node) ` or `public void postVisit(TExpression node) ` method of  your customzied visitor class that extends TParseTreeVisitor.
+---
+layout: post
+title: "TExpression and acceptChildren"
+categories:
+  - gsp-api
+---
+
+User should be careful When use acceptChildren() method in the `public void preVisit(TExpression node) ` 
+or `public void postVisit(TExpression node) ` method of  your customzied visitor class that extends TParseTreeVisitor.
 
 ```csharp
 class TreeVisitor extends TParseTreeVisitor {

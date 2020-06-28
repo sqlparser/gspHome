@@ -4,7 +4,7 @@ title: "Overview of General SQL Parser - sql parse tree"
 excerpt: "A general review/summary of General SQL Parser: sql parser tree"
 permalink: gsp-overview-sql-parse-tree-cn.html
 categories:
-  - get-started
+  - get-started-cn
 ---
 
 {% include toc %}

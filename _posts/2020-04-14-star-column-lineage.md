@@ -1,3 +1,10 @@
+---
+layout: post
+title: "The star column (*) in the process of the column level lineage"
+categories:
+  - data-lineage
+---
+
 How to handle the star column (*) during the process of the column level lineage
 
 ```sql

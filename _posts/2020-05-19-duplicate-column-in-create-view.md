@@ -1,4 +1,10 @@
-Duplicate column in create view
+---
+layout: post
+title: "Duplicate column in create view"
+categories:
+  - sql-syntax
+---
+
 
 ```sql
 CREATE TABLE t1(f1 int , f3 int);
