@@ -1,8 +1,6 @@
 ---
 layout: page
 title: "Collect data lineage in Data Warehouses by analysis SQL script"
-categories:
-  - Demo
 ---
 
 This tool is aimed to collect data lineage information in Data Warehouses environment by analysis SQL script especially stored procedure like PL/SQL that used in a ETL process.
