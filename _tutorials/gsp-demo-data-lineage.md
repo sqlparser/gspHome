@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Collect data lineage in Data Warehouses by analysis SQL script"
+title: "ZCollect data lineage in Data Warehouses by analysis SQL script"
 categories:
   - Demo
 ---
