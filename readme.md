@@ -7,3 +7,6 @@
 - 每篇post指定 categories，方便以后分类显示。
 - 放在_posts 目录，仍然可以把 layout 设为 page，这样版式使用 page，同时又不影响 categories and tags的使用。
 
+
+### 官方文档
+- https://jekyllrb.com/docs/
