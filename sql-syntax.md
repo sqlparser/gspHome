@@ -6,6 +6,6 @@ paginate: true
 entries_layout: list
 ---
 
-{% for item in {{site.categories| where:"sql-syntax"}} %}
+{% for item in site.categories.sql-syntax %}
   - <a href="{{ item.url }}">{{ item.title }}</a>
 {% endfor %}
