@@ -6,7 +6,7 @@ categories:
   - get-started-cn  
 ---
 
-SQL function 在GSP中用 TFunctionCall 类表示。所有的function都用这个类表示。
+SQL function 在GSP中用TFunctionCall类表示。所有的function都用这个类表示。
 
 ### TFunctionCall中的基本信息
 一般的SQL function的语法如下：
