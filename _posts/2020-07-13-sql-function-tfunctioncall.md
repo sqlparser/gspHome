@@ -27,18 +27,27 @@ getFunctionType() = unknown_t
 
 ### 不规则参数的函数
 
-一般情况下，函数的参数由`TExpressionList getArgs()`获得。但一些非规则的函数参数需视情况逐个处理。
-例如`cast`函数，
+一般情况下，函数的参数由`TExpressionList getArgs()`获得，这些函数的参数形如：
+```sql
+funcName(arg1,arg2,arg3)
+```
+其中，`arg1`,`arg2`,`arg3`的类型都是表达式：`TExpression`。
+
+但有一些函数的参数并不能仅仅由表达式来表示，例如`cast`函数，
 ```sql
 SELECT CAST(ytd_sales AS CHAR(5)) FROM titles
 ```
 
-对应的参数分别为：
+除了`ytd_sales`可以用`TExpression`，还有`AS`关键字和`CHAR(5)`数据类型，所以`cast`函数
+的参数不能用`TExpressionList getArgs()`获得，它对应的参数分别为：
 ```java
 getExpr1() = ytd_sales
 getTypename() = CHAR(5)
 ```
 
+函数的参数语法上的多样性，导致获取参数的API方式的不统一。以后API上可能需要改进以保证获取参数方法统一。
+
+*其它参数不规则的函数另行补充.*
 
 
 ### 判断一个函数是否为数据库的内置函数(built-in funciton)
@@ -51,7 +60,9 @@ public boolean isBuiltIn(EDbVendor pDBVendor)
 ```java
 public static boolean isBuiltIn(String pName, EDbVendor pDBVendor)
 ```
+
 ###  aggregate function
+
 ##### 1. ALL | DISTINCT 
 `getAggregateType()` is used to determine the `ALL | DISTINCT` used in the aggregate function.
 
