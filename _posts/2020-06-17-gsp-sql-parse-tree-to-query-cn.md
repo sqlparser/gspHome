@@ -21,7 +21,7 @@ The General SQL Parser(GSP) 遵循SQL语法规则，为SQL语句生成一棵对�
 
 
 ### Token流和语法树的关系
-1. 每个node对应token流中的部分连续的token。start token表示该node的起始token，end token表示该node的结束token。
+1. 每个node对应token流中的部分连续的token。start token表示该node的起始token，end token表示该node的结束token。**每个node必须包含start and end token**.
 2. 父node包含所有子node的token。
 3. 处于同一层级的node的token不会有重叠。
 4. token以双向链表线性存储，node是分层的树型存储。 
@@ -46,14 +46,15 @@ GSP演化到现在，有三个版本的实现。
 该实现采用上面说的方法1，即从语法树node对应的token流直接生成SQL语句。对语法树的node进行改动时必须同步更新对应的token流，但如果这个同步维护的不好，容易导致出错。这个版本适合语法树没有变动，或node很少变动的情况。
 
 #### 版本2的实现
-该实现采用上面说的方法2。根据语法树每个node的语法含义，逐个产生对应的SQL文本，从顶层node开始，逐个node进行遍历，拼接SQL文本。这种实现的优点是逻辑清晰，节点变动时无需考虑对应的token流。但由于SQL语言本身的复杂及node类型繁多，如果有一个node类型尚未支持，整个SQL语句无法正确生成。
+该实现采用上面说的方法2。根据语法树每个node的语法含义，逐个产生对应的SQL文本，从顶层node开始，逐个node进行遍历，拼接SQL文本。这种实现的优点是逻辑清晰，节点变动时无需考虑对应的token流。
+但由于SQL语言本身的复杂及node类型繁多，如果有一个node类型尚未支持，整个SQL语句无法正确生成。
 
 #### 版本3的实现
 该实现是版本1的增强版本，从token流生成SQL语句。在操作语法树的同时更新对应的token流，token流采用双向链表，整棵语法树的token流始终保持完整。这种实现可以配合`visitor`模式，
-只对感兴趣的node进行处理，并更新对应detoken流，其他node因为对应的token流未受影响，所有妨碍整个SQL语句的生成。
+只对感兴趣的node进行处理，并更新对应的token流，其他node因为对应的token流未受影响，所有不妨碍整个SQL语句的生成。
 
-在同一次遍历处理过程中，处理的node不能重叠，即如果处理了父node，子node就无法处理，因为对应的token流在处理父node时已经完全更改。
-只有在新的SQL语句产生后，由此产生一棵新的语法树，再次重复以上过程，直到所有所有需要大node都被处理。
+在同一次遍历处理过程中，处理的node不能重叠，即如果处理了父node，子node就无法处理，因为其对应的token流在处理父node时已经完全更改。
+只有在新的SQL语句产生后，由此产生一棵新的语法树，再次重复以上过程，直到所有需要的node都被处理。
 
 #### 更多信息
 - [GSP 基本信息](/gsp-overview-cn.html) 

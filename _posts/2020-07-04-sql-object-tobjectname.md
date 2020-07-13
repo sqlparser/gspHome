@@ -169,3 +169,6 @@ getMethodToken() = nodes
 getPartToken() = ReformattedSegments
 getObjectToken() = N
 ```   
+
+## Related demo
+[search SQL Object](https://github.com/sqlparser/gsp_demo_java/blob/master/src/main/java/demos/visitors/searchSQLObject.java)

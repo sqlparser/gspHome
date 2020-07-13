@@ -48,6 +48,10 @@ getScale() = 2
 ### 参考资料
 SQL2003 datatypes 的详细列表见 "SQL in a Nutshell, 3rd Edition" p30, Table 2-8. SQL2003 categories and datatypes
 
+### Related demo
+[search SQL Datatype](https://github.com/sqlparser/gsp_demo_java/blob/master/src/main/java/demos/visitors/searchDatatype.java)
+
+
 ### EDataType的完整列表
 ```java
 package gudusoft.gsqlparser;
