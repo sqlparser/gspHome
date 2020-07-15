@@ -39,6 +39,8 @@ class objectNameVisitor extends TParseTreeVisitor {
 }
 ```
 
+**GSP的visitor对所有node的深度访问可能会有遗漏，在开发中遇到此类问题需及时反馈。**
+
 #### 利用visitor来进行SQL语句中datatype的检查
 例如，在netezza到snowflake的SQL转换过程中，我们需要检查datatype是否兼容，当发现create table语句中有使用ST_GEOMETRY datatype时， 我们就要标记出该datatype 需要被转换成snowflake的VARBINARY.
 
@@ -46,7 +48,7 @@ class objectNameVisitor extends TParseTreeVisitor {
 ```java
 class datatypeVisitor extends TParseTreeVisitor {
     public void preVisit(TTypeName node){
-    // 加入检查代码
+    // 加入功能检查代码
     }
 }
 ```
