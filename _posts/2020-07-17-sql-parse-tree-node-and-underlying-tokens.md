@@ -100,7 +100,7 @@ FROM scott.employee AS e,jobs AS j
 SELECT e.emp_id,e.fname,e.lname
 FROM scott.employee AS e,jobs AS j
 ```
-当在`e.lname`后加入`j.job_desc`时，必须在`j.job_desc`前同时加入`,`，以确保语法正确。
+当在`e.lname`后加入`j.job_desc`时，必须在`j.job_desc`前同时加入`,`以确保语法正确。
 
 *补充图9 加入`j.job_desc`前的SQL的token list*
 
@@ -121,7 +121,7 @@ FROM scott.employee AS e,jobs AS j
 *补充图12 加入`WHERE e.job_id = j.job_id`后的SQL的token list*
 
 
-### Node toScript
+### Node toScript()
 
 从上面的介绍可知，利用`toString()`从语法树生成SQL文本时，对语法树上node做改动时，必须对底层对应的token做好同步。
 
