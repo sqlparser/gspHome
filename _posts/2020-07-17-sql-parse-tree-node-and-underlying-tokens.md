@@ -31,7 +31,7 @@ TWhereClause whereClause = new TWhereClause();
 whereClause.setString("where a+b>c");
 ```
 
-*<补充图2 显示上例中whereClause的token list>*
+*补充图2 显示上例中whereClause的token list*
 
 
 ### Node toString()
