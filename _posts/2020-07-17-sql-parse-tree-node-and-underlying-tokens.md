@@ -19,7 +19,7 @@ WHERE e.job_id = j.job_id -- this is a comment
 ORDER BY e.fname,e.lname 
 ```
 
-*<补充图1 显示上面SQL的SELECT语句对应的token list，是一个双向链接的token list，图中的每个token显示：text, tokentype,tokencode 这三个内容>*
+*补充图1 显示上面SQL的SELECT语句对应的token list，是一个双向链接的token list，图中的每个token显示：text, tokentype,tokencode 这三个内容*
 
 ### Node setString()
 给一个node设置text时，GSP会把text转换成tokens， 然后把这些token插入到node所在parse tree的整个token链表中。
@@ -49,7 +49,7 @@ SELECT *
 FROM scott.employee
 WHERE e.job_id = 1
 ```
-*<补充图3 显示上例中token list>*
+*补充图3 显示上例中token list*
 
 ```java
 sqlparser.sqltext = "SELECT *\n" +
@@ -68,7 +68,7 @@ SELECT *
 FROM scott.employee
 WHERE e.salary > 1000
 ```
-*<补充图4 显示上例中新的SQL的token list>*
+*补充图4 显示上例中新的SQL的token list*
 
 
 #### 2. 删除node
@@ -80,15 +80,15 @@ FROM scott.employee AS e,jobs AS j
 ```
 如果要从select list中删除`e.emp_id`， 则`e.emp_id`后面的`,`也必须一起删除。而删除`j.job_desc`时，则`j.job_desc`之前的`,`也必须一起删除。
 
-*<补充图5 删除e.emp_id前的SQL的token list>*
+*补充图5 删除e.emp_id前的SQL的token list*
 
-*<补充图6 删除e.emp_id后的SQL的token list>*
+*补充图6 删除e.emp_id后的SQL的token list*
 
 如果要删除`jobs AS j`中的`J`时， `AS`也必须一起删除。
 
-*<补充图7 删除j前的SQL的token list>*
+*补充图7 删除j前的SQL的token list*
 
-*<补充图8 删除j后的SQL的token list>*
+*补充图8 删除j后的SQL的token list*
 
 
 #### 3. 增加node
@@ -102,9 +102,9 @@ FROM scott.employee AS e,jobs AS j
 ```
 当在`e.lname`后加入`j.job_desc`时，必须在`j.job_desc`前同时加入`,`，以确保语法正确。
 
-*<补充图9 加入`j.job_desc`前的SQL的token list>*
+*补充图9 加入`j.job_desc`前的SQL的token list*
 
-*<补充图10 加入`j.job_desc`后的SQL的token list>*
+*补充图10 加入`j.job_desc`后的SQL的token list*
 
 
 - 增加node时同步tokens的另一个问题是，如何在parse tree的token list中找到新node的tokens的插入位置。
@@ -116,9 +116,9 @@ FROM scott.employee AS e,jobs AS j
 ```
 如果增加一个where clause node， 即`WHERE e.job_id = j.job_id`， 那么该node对应的tokens应该插入到当前parse tree的token list中的哪个位置? 这种问题需要GSP解决。
 
-*<补充图11 加入`WHERE e.job_id = j.job_id`前的SQL的token list>*
+*补充图11 加入`WHERE e.job_id = j.job_id`前的SQL的token list*
 
-*<补充图12 加入`WHERE e.job_id = j.job_id`后的SQL的token list>*
+*补充图12 加入`WHERE e.job_id = j.job_id`后的SQL的token list*
 
 
 ### Node toScript
