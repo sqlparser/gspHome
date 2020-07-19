@@ -21,10 +21,43 @@ ORDER BY e.fname,e.lname
 
 *补充图1 显示上面SQL的SELECT语句对应的token list，是一个双向链接的token list，图中的每个token显示：text, tokentype,tokencode 这三个内容*
 
+### SQL语句的语法树(parse tree)及节点(node)
+语法树(parse tree)包含多个节点(node)，同时，节点(node)也可以包含多个子节点，因此，一个顶级的node就是一颗语法树。例如`TSelectSqlStatement`.
+
+不同数据库的相同SQL语句，例如SELECT语句，在GSP中用同一个节点`TSelectSqlStatement`表示，它的子节点因为不同的数据库而可能会有不同，例如，Oracle中就没有`TTopClause`这个子节点。visitor访问代表不同数据库SELECT语句的`TSelectSqlStatement`节点的方式是相同的。
+
+#### 节点与子节点的关系
+节点可以包含多个子节点，每个子节点对应的token list不会重叠，节点的token list包含所有子节点的token list，除此之外，可能还会包含节点自身独有的辅助token，例如，`TSelectSqlStatement`就有`SELECT`这个token，它不属于任何子节点。
+
+节点的startToken, endToken可能和它子节点的startToken, endToken重合，因此，当某个子节点的startToken, endToken发生变化时，节点的startToken, endToken也需要同步更新，因为这时节点原有的startToken, endToken可能失效。
+
+```sql
+fx(2)+1
+```
+这个表达式节点`TExpression`的startToken是`fx`,同时，`fx`也是子节点`TFunctionCall`的startToken。当我们用`TFunctionCall.setString('gx(2)')`把`fx(2)`更改为`gx(2)`时，子节点`TFunctionCall`的startToken这时就变为`gx`，而`TExpression`的startToken仍然指向`fx`，这是不对的，需要把`TExpression`的startToken更新，让它指向`gx`。否则，我们调用`TExpression.toString()`，它的结果是不正确的。当然，如果从更高层级的node调用`toString()`方法，输出结果仍然是正确的，例如：
+```sql
+WHERE fx(2)+1>1
+```
+
+当用`TFunctionCall.setString('gx(2)')`把`fx(2)`更改为`gx(2)`后，`TWhereClause.toString()` 仍将输出正确的结果，原因是：
+1. `TFunctionCall.setString()`不会影响`TWhereClause`的startToken,它仍然是`WHERE`。
+2. 在`TFunctionCall.setString()`时，`gx`会取代`fx`加入到`TWhereClause`的token list中来。
+
+### 利用visitor来访问和修改node
+利用visitor来找到某种特定类型的node是一种高效的方法。利用visitor遍历整颗语法树并对node进行操作时，需要注意以下几点：
+1. 最小化原则，能够修改某个特定子节点，就不要修改整个父节点。
+2. 当用`setSting()`修改某个节点后，其所有子节点都处于`deattached`状态，即不再属于整颗语法树，随后对这些子节点的改动也是无效的，不会反应在语法树中。该节点本身也处于`flattened`状态。
+3. 子节点用`setString()`后，可能会让父节点的startToken, endToken失效。*(可在实现中确保不让这一点发生)*
+4. 在visitor的`postVisit()`中处理节点时，可以保证先让子节点得到处理。
+5. 一个visitor可以根据实际业务需求，多次遍历同一个node，处理不同的子节点。但要注意处理的节点没有处于`deattached`或`flattened`状态。
+
+
+在把一颗代表Oracle的SELECT语句的`TSelectSqlStatement`语法树转换成代表SQL Server的SELECT语句的`TSelectSqlStatement`时，我们可以采用上述方法。转换完成后，利用`toString()`就可以输出一个满足SQL Server语法的SELECT语句。
+
 ### Node setString()
 给一个node设置text时，GSP会把text转换成tokens， 然后把这些token插入到node所在parse tree的整个token链表中。
 
-因为每种数据库的词法有差别，在把text转换成tokens时，需要明确是哪种数据库。为避免每次调用`setString()`时都额外指定数据库，引入一个静态全局变：`TGSqlParser.currentDBVendor`，当创建新的`TGSqlParser`实例时，设置`TGSqlParser.currentDBVendor`的值，该值总是和最近一次创建的`TGSqlParser`实例的数据库相同。**在多线程环境中这个设计可能导致问题**
+因为每种数据库的词法有差别，在把text转换成tokens时，需要明确是哪种数据库。为避免每次调用`setString()`时都额外指定数据库，引入一个静态全局变：`TGSqlParser.currentDBVendor`，当创建新的`TGSqlParser`实例时，设置`TGSqlParser.currentDBVendor`的值，该值总是和最近一次创建的`TGSqlParser`实例的数据库相同。如果想改变下一次`setString()`使用的数据库词法，可以更改该值。**在多线程环境中这个设计可能导致问题**
 
 ```java
 TWhereClause whereClause = new TWhereClause();
