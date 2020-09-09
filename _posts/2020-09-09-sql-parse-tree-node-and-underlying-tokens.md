@@ -24,7 +24,8 @@ SELECT emp_id,salary+100 FROM emp
 
 以上SQL对应下面的 token list:
 
-![token_list1](/images/token_list1.png)
+![token_list1](/images/gsp/token_list1.png)
+
 
 每个 node 都含有一个起始 token(startToken) 和一个结束 token(endToken)。组成 node 的 token 由  startToken 开始，到 endToken 结束。node 中的所有 token 以双向链表方式建立关联。
 ```java
