@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Overview of General SQL Parser - sql parse tree node and underlying tokens"
+title: "SQL parse tree node and underlying tokens"
 excerpt: "A general review/summary of General SQL Parser: sql parser tree node and underlying tokens"
 permalink: gsp-sql-parse-tree-node-and-underlying-tokens-cn.html
 categories:
