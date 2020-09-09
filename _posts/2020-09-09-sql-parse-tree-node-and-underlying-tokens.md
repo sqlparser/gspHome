@@ -55,7 +55,7 @@ public Stack<TParseTreeNode> getNodesEndWithThisToken()
 2: Node type:gudusoft.gsqlparser.nodes.TResultColumn, 	Node text:emp_id
 ```
 
-![node_include_token_1](094DD3956817449F897EBC2D50F77812)
+![node_include_token_1](/images/gsp/node_include_token_1.png)
 
 
 可以发现，当 node 只有唯一一个 token 组成时， node 的 startToken 和 endToken 都为该 token。
@@ -75,7 +75,7 @@ public Stack<TParseTreeNode> getNodesEndWithThisToken()
 1: Node type:gudusoft.gsqlparser.nodes.TExpression, 	Node text:salary
 ```
 
-![node_include_token_2](B0ED337A84864D159C34FDE4105E13AE)
+![node_include_token_2](/images/gsp/node_include_token_2.png)
 
 #### 例 3, token: 100
 
@@ -158,11 +158,11 @@ fx(2)+1
 ```
 它的 token list 为：
 
-![token_list2](5B851FB46E9B4FA48640A023099A4298)
+![token_list2](/images/gsp/token_list2.png)
 
 它的 node 关系图：
 
-![node_include_token_3](52FC19194EDA411E88123024A768D370)
+![node_include_token_3](/images/gsp/node_include_token_3.png)
 
 从图中可以知道，`fx` 同时是 TObjectName, TFunctionCall, TExpression (3), TExpression (4) 的 startToken.
 当我们用 `TFunctionCall.setString('gx(2)')` 把 `fx(2)` 更改为 `gx(2)` 时，子节点 `TFunctionCall` 的 startToken 变为 `gx`， 此时如果不做同步，其它三个节点的 startToken 仍然指向 `fx`，这是不对的。此时如果调用 `TExpression (3).toString()` , 它的结果是 `fx(2)`, 而不是已经变更后的 `gx(2)`.
