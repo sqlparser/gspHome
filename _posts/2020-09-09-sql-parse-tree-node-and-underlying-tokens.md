@@ -227,6 +227,8 @@ public TSourceToken getNextTokenInChain()
 public void setNextTokenInChain(TSourceToken nextTokenInChain)
 public TSourceToken getPrevTokenInChain()
 public void setPrevTokenInChain(TSourceToken prevTokenInChain)
+
+public void removeFromChain()
 ```
 
 利用 API 对 AST 进行操作后， 利用以上数据结构和方法， 同步 node 和 token list。主要实现这三个功能：
