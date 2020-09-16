@@ -102,3 +102,6 @@ assertTrue(expression.toString().equalsIgnoreCase("d.cntrb_date1 >= '$From_Date$
 2. public void testRemoveExprList()
 
 [testModifyExpr](https://github.com/sqlparser/gsp_demo_java/blob/master/src/test/java/common/testModifyExpr.java)
+[testModifySql](https://github.com/sqlparser/gsp_demo_java/blob/master/src/test/java/common/testModifySql.java)
+
+
