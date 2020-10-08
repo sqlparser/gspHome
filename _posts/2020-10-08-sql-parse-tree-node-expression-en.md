@@ -23,9 +23,9 @@ According to the different kind of expression, the result will be different afte
 
 - Math expression: +,-,*,/ and other expression with two operands, after removing one operand, the other will be remain unchanged.
 - Logical expression: and, or，  after removing one operand, the other will be remain unchanged.
-- Comparison expression: <, > , after removing one operand, the whole expression will be remove.
-- in, between, () expression:  after removing one operand, the whole expression will be remove.
-- Other kind of expression:  after removing one operand, the whole expression will be remove.
+- Comparison expression: <, > , after removing one operand, the whole expression will be removed.
+- in, between, () expression:  after removing one operand, the whole expression will be removed.
+- Other kind of expression:  after removing one operand, the whole expression will be removed.
 
 After the removal of the sub-node, if the whole parent expression is removed as well, the processing will be executed recursively until the top-level expression.
 

@@ -12,7 +12,7 @@ This document explains how to use the GSP library to parse an existing SQL scrip
 
 > If you build a SQL parse tree from the scratch(Not from the existing SQL), and then generate SQL text from this parse tree, then **TParseTreeNode.toScript()** is the better choice.
 
-## 1 TParseTreeNode setString()
+## 1. TParseTreeNode setString()
 Change the text of a SQL clause or the whole SQL statement.
 
 Take this SQL for example:
@@ -25,7 +25,7 @@ WHERE e.job_id = 1
 
 We like to change the condition in the where clause from `e.job_id = 1` to `e.salary > 1000`.
 
-Below is the Java code illustrate how to achieve this.
+Below is the Java code illustrates how to achieve this.
 ```java
 sqlparser.sqltext = "SELECT *\n" +
         "FROM scott.employee\n" +
@@ -50,7 +50,7 @@ WHERE e.salary > 1000
 
 
 
-## 2 remove a node
+## 2. remove a node
 ### Call **setXXX()**  method from the parent node and pass **null** as input parameter, will remove the SQL clause from the parent node.
 
 This Java code will remove where clause from the select statement.
@@ -79,8 +79,8 @@ System.out.println(select.toString());
 ```
 
 
-## 3 update a node
-Please node **setString()**
+## 3. update a node
+Please node's **setString()** method.
 
 ```java
 TGSqlParser parser = new TGSqlParser(EDbVendor.dbvoracle);
@@ -94,7 +94,7 @@ System.out.println (select.toString());
 ```
 
 
-## 4 add a new node
+## 4. add a new node
 Call **setXXX()**  method from the parent node and pass the new node as a paremeter.
 In order to add a new node, we must know the parent node of this new added node.
 
@@ -142,5 +142,5 @@ Since there are lots of nodes in a parse tree node, and you may only need to mod
 So, use visitor to search and modify a specific type node is very convenient.
 
 Please find how to search datatype, function, SQL statement and modify it here:
-https://github.com/sqlparser/gsp_demo_java/tree/master/src/main/java/demos/visitors
+[Java demo](https://github.com/sqlparser/gsp_demo_java/tree/master/src/main/java/demos/visitors)
 
