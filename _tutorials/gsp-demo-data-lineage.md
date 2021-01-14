@@ -13,14 +13,9 @@ Once we have such kind of data lineage in hand, we can do these kind of things e
 
 {% include toc %}
 
-### Run this tool
+### Run this tool(online live)
 
-In order to run this tool, JRE 1.5 or higher need to be installed.  In command line, run java -Xms256m -Xmx1024m -jar DlineageDemo.jar
-
-1. Select the database vendor from menu -> Vendor
-2. Pickup the SQL script from menu -> File -> Load SQL Files, or just paste SQL query into the SQL editor.
-3. Click "Analyze" button in the tool bar.
-4. Result will be shown in the diagram window and data flow xml file will be generated under the output directory in the same directory of DlineageDemo.jar.
+You may give a try of the online dataflow <a href="https://sqlflow.gudusoft.com/?utm_source=gspsite&utm_medium=blog&utm_campaign=support_article" class="btn btn--info">live demo</a>.
 
 ### How this tool works
 
@@ -38,9 +33,6 @@ Support those major database platforms: db2, greenplum, hana, hive, impala, info
 - Stored procudure: Oracle PL/SQL, SQL Server T-SQL, DB2, PostgreSQL, Sybase.
 - Teradata FastExport, MultiLoad script, BTEQ command.
 
-### The online live demo
-
-You may give a try of the online dataflow <a href="https://www.gudusoft.com/sqlflow" class="btn btn--info">live demo</a>.
 
 ### The relationship between target/source columns
 
