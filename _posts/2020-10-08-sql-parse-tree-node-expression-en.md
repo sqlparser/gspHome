@@ -1,75 +1,98 @@
 ---
 layout: page
-title: "Data lineage analysis from multiple SQL Files."
-excerpt: "Data lineage analysis from multiple SQL Files and get accurate metadata result in JSON and CSV format."
-permalink: data-lineage-multiple-SQL-files.html
+title: "SQL parse tree node and expression modification"
+excerpt: "A general review/summary of General SQL Parser: sql parser tree node and expression modification"
+permalink: gsp-sql-parse-tree-node-and-expression-modification.html
 categories:
-  - data-lineage
+  - get-started
+  - sql-syntax
 ---
 
-Data lineage analysis from multiple SQL Files
+How to modify and rebuild expression.
 
-To get an accurate data lineage analysis result, we may provide 
-the definition of the database objects such as table, view, procedure to
-the GSP(General SQL Parser).
+## 1. remove a sub-node of an Expression
 
-### 1. Parse SQL file with ambigious table/columnn relation
-
-Take this SQL (file1.sql) for example: 
+After removing a sub-node of an expression, the whole expression maybe affected. Take this SQL for example:
 
 ```sql
-CREATE VIEW test 
-AS 
-  (SELECT NAME, 
-          address 
-   FROM   manager, 
-          employee 
-   WHERE  manager.id = employee.id) 
+d.cntrb_date1 >= '$From_Date$'
 ```
+remove either d.cntrb_date1 or '$From_Date$', the whole expression will be removed as well.
 
-Without more information. GSP doesn't know the column `NAME`, `address` in 
-the select list belongs to which table in the from clause.
+According to the different kind of expression, the result will be different after removing a sub-node.
 
-### 2. Provides the table definition 
+- Math expression: +,-,*,/ and other expression with two operands, after removing one operand, the other will be remain unchanged.
+- Logical expression: and, or，  after removing one operand, the other will be remain unchanged.
+- Comparison expression: <, > , after removing one operand, the whole expression will be removed.
+- in, between, () expression:  after removing one operand, the whole expression will be removed.
+- Other kind of expression:  after removing one operand, the whole expression will be removed.
 
-File1.sql
+After the removal of the sub-node, if the whole parent expression is removed as well, the processing will be executed recursively until the top-level expression.
+
+
+###  1.1 API
+Call TExpression.removeMe() to remove an expression itself.
+
+
+
+### 1.2 using TParseTreeNodeList.removeItem(int index) to remove the sub-expression in the expression list
+
 ```sql
-Create table employee (id number, name varchar2(100), address varchar2(100));
+(1,2,3,4)
 ```
 
-File2.sql
-```sql
-Create table manager (id number, age varchar2(100), country varchar2(100));
-```
-
-If you provide those 2 SQL files with the table definition to the GSP, 
-then column `NAME`, `address` will be linked to the table `employee` correctly.
-
-### 3. How to provides multiple SQL files to GSP
-In GSP, `gudusoft.gsqlparser.dlineage.DataFlowAnalyzer` class do the actual work of 
-data lineage analysis.
-
+After calling
 ```java
-	public DataFlowAnalyzer(File sqlFile, EDbVendor dbVendor, boolean simpleOutput) {
-		this.sqlFile = sqlFile;
-		this.vendor = dbVendor;
-		this.simpleOutput = simpleOutput;
-	}
+expressionList.removeItem(0);
 ```
 
-As you can see here, the first parameter of `DataFlowAnalyzer` accept a `File` type
-which will accept a directory that includes all SQL files that need to be processed.
+The result is:
+```sql
+(2,3,4)
+```
 
 
-You may also check the DataFlowAnalyzer demo under demos.lineage package shipped together
-with the GSP library to find out how to feed multiple SQL files.
+## 2. Modify the expression
+
+```sql
+d.cntrb_date1 >= '$From_Date$'
+```
+After set '$From_Date$' to 1 , the expression will be 
+```sql
+d.cntrb_date1 >= 1
+```
+
+The java code to achieve this:
+```java
+expression.getRightOperand().setString("1");
+assertTrue(expression.toString().equalsIgnoreCase("d.cntrb_date1 >= 1"));
+```
+
+## 3. Add a new expression
+
+If we like to change
+```sql
+d.cntrb_date1 >= '$From_Date$'
+```
+to:
+```sql
+d.cntrb_date1 >= '$From_Date$' + 1
+```
 
 
-### 4. Pulling all objects from a database (table, view, function, procedure, and trigger definitions) 
-Once you were pulling all objects from a database (table, view, function, procedure, and trigger definitions),
-it is recommended to put the definition of a single object in a single SQL file, especially for 
-function, procedure, and trigger definitions. In this way, the processing error in one single SQL file
-will not affect the other SQL files.
+Here is the Java code:
+```java
+expression.getRightOperand().setString(expression.getRightOperand().toString()+" + 1");
+assertTrue(expression.toString().equalsIgnoreCase("d.cntrb_date1 >= '$From_Date$' + 1"));
+```
 
-The order of those SQL files put under a directory doesn't matter. GSP is smart enough to get the necessary
-information accordingly.
+
+
+### Reference Java code
+[testExpression](https://github.com/sqlparser/gsp_demo_java/blob/master/src/test/java/common/testExpression.java)
+
+1. public void testRemove1()
+2. public void testRemoveExprList()
+
+[testModifyExpr](https://github.com/sqlparser/gsp_demo_java/blob/master/src/test/java/common/testModifyExpr.java)
+[testModifySql](https://github.com/sqlparser/gsp_demo_java/blob/master/src/test/java/common/testModifySql.java)
